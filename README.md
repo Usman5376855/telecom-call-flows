@@ -49,6 +49,9 @@ This repository is intended for:
 - [x] NSA
 - [x] SA
 
+## Repository Structure
+
+```text
 telecom-call-flows/
 │
 ├── LTE/
@@ -61,10 +64,11 @@ telecom-call-flows/
 ├── References/
 ├── Images/
 └── README.md
+```
 
 ## Learning Roadmap
 
-### LTE
+## LTE
 
 - Attach
 - Service Request
@@ -110,7 +114,7 @@ If you identify an issue or have ideas for improvement, feel free to open an Iss
 
 Content is developed using publicly available technical resources, including:
 
-- 3GPP Specifications
+- 3GPP Technical Specifications
 - RFC Documents
 - GSMA Documentation
 - Public technical papers
@@ -127,4 +131,4 @@ Interested in Mobile Core Networks, Cloud Native Telecom, and Telecom Automation
 
 This project is licensed under the MIT License.
 
-⭐ If you find this repository useful, feel free to star it.
+
