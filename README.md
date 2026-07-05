@@ -1,5 +1,9 @@
 # Telecom Call Flows
+
 A comprehensive open-source knowledge base of LTE, EPC, IMS, VoLTE, VoNR, and 5G Core signaling procedures.
+
+**Built and maintained by Muhammad Usman to document practical mobile core network procedures and troubleshooting based on industry standards.**
+
 ## Mission
 
 To build a comprehensive, standards-based telecom knowledge repository that helps engineers understand signaling procedures across LTE, EPC, IMS, VoLTE, VoNR, and 5G Core networks through practical documentation and real-world troubleshooting.
@@ -31,7 +35,8 @@ This repository explains complex procedures in a practical and structured way us
 - References to public standards
 
 
-📂 **Location:** [LTE Attach](LTE/Attach)
+📂 **Location:** [LTE Attach Procedure](LTE/Attach)
+
    ## Target Audience
 
 This repository is intended for:
@@ -98,28 +103,53 @@ It includes:
 | Paging | 🚧 Planned |
 | Detach | 🚧 Planned |
 
+### EPC
+
+| Procedure | Status |
+|-----------|--------|
+| Default Bearer Creation | 🚧 Planned |
+| Dedicated Bearer Creation | 🚧 Planned |
+| Bearer Modification | 🚧 Planned |
+| Session Release | 🚧 Planned |
+| Idle Mode Mobility | 🚧 Planned |
+
 ### IMS
 
-- Registration
-- SIP Signaling
+| Procedure | Status |
+|-----------|--------|
+| IMS Registration | 🚧 Planned |
+| SIP Signaling | 🚧 Planned |
+| Session Establishment | 🚧 Planned |
+| Session Release | 🚧 Planned |
 
 ### VoLTE
 
-- MO Call
-- MT Call
+| Procedure | Status |
+|-----------|--------|
+| MO Call | 🚧 Planned |
+| MT Call | 🚧 Planned |
+| SRVCC | 🚧 Planned |
+| Emergency Call | 🚧 Planned |
 
 ### VoNR
 
-- Registration
-- MO Call
-- EPS Fallback
+| Procedure | Status |
+|-----------|--------|
+| Registration | 🚧 Planned |
+| MO Call | 🚧 Planned |
+| MT Call | 🚧 Planned |
+| EPS Fallback | 🚧 Planned |
 
 ### 5G Core
 
-- Registration
-- PDU Session Establishment
-- N2 Handover
-
+| Procedure | Status |
+|-----------|--------|
+| Registration | 🚧 Planned |
+| PDU Session Establishment | 🚧 Planned |
+| Service Request | 🚧 Planned |
+| N2 Handover | 🚧 Planned |
+| Deregistration | 🚧 Planned |
+| Network Slice Selection | 🚧 Planned |
 ## Progress
 
 | Technology | Progress |
