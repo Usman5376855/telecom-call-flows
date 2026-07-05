@@ -109,6 +109,22 @@ The authentication vectors typically include:
 
 The MME stores these vectors and uses them in the next step to authenticate the UE.
 
+### 4. Authentication Request / Authentication Response (MME ↔ UE)
+
+Using the authentication vectors received from the HSS, the MME initiates subscriber authentication by sending an **Authentication Request** to the UE.
+
+The Authentication Request contains the **RAND** (Random Challenge) and **AUTN** (Authentication Token). The UE verifies the authenticity of the network using the AUTN and computes an authentication response using the secret key stored in the USIM.
+
+If the verification is successful, the UE returns an **Authentication Response** containing the calculated **RES (Response)**.
+
+The MME compares the received RES with the expected response (XRES) obtained from the HSS. If they match, the subscriber is successfully authenticated and the Attach procedure continues. Otherwise, the Attach procedure is rejected.
+
+**Interface:** S1-MME (NAS Signaling)  
+**Protocol:** NAS  
+**Direction:** MME → UE → MME
+
+
+
 
 
 
