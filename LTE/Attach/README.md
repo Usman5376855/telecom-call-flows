@@ -206,4 +206,16 @@ Once the MME receives the Attach Complete message, the Attach procedure is consi
 - **3GPP TS 24.301** – Non-Access-Stratum (NAS) Protocol for EPS
 - **3GPP TS 23.401** – EPS Architecture and Mobility Management
 
+## Common Troubleshooting
+
+| Issue | Possible Cause |
+|-------|----------------|
+| Attach Reject | Invalid SIM, subscription issue, roaming restriction |
+| Authentication Failure | Incorrect authentication vectors or USIM mismatch |
+| Security Mode Failure | NAS security negotiation failed |
+| Create Session Failure | APN or PGW configuration issue |
+| IP Address Not Assigned | PGW pool exhausted or APN misconfiguration |
+| Update Location Failure | HSS or Diameter connectivity issue |
+| TAI Not Allowed | UE attempting to register in a restricted tracking area |
+
 Detailed signaling procedures, sequence diagrams, troubleshooting scenarios, and references will be added in future updates.
