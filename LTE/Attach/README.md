@@ -189,6 +189,21 @@ Upon receiving this message, the UE configures the default EPS bearer and prepar
 - **3GPP TS 24.301** – Non-Access-Stratum (NAS) Protocol for EPS
 - **3GPP TS 23.401** – EPS Architecture and Mobility Management
   
+### 9. Attach Complete (UE → MME)
 
+After receiving the **Attach Accept** message, the UE completes the Attach procedure by sending an **Attach Complete** message to the MME. This confirms that the UE has successfully processed the Attach Accept message and configured the default EPS bearer.
+
+Once the MME receives the Attach Complete message, the Attach procedure is considered successfully completed. The UE is now registered with the EPC and can exchange user-plane data through the established default EPS bearer.
+
+**Interface:** S1-MME (NAS Signaling)  
+**Protocol:** NAS  
+**Direction:** UE → MME
+
+> **Key Point:** This message marks the successful completion of the LTE Attach procedure, enabling the UE to access LTE packet data services.
+
+#### Related 3GPP Specifications
+
+- **3GPP TS 24.301** – Non-Access-Stratum (NAS) Protocol for EPS
+- **3GPP TS 23.401** – EPS Architecture and Mobility Management
 
 Detailed signaling procedures, sequence diagrams, troubleshooting scenarios, and references will be added in future updates.
