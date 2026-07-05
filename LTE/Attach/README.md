@@ -41,4 +41,28 @@ The following network elements participate in the LTE Attach procedure:
 
 ![LTE Attach Procedure](images/lte-attach.png)
 
+
+## Summary
+
+The LTE Attach procedure establishes the UE's connection to the Evolved Packet Core (EPC), enabling access to LTE packet data services. During this procedure, the subscriber is authenticated, security is activated, the UE is registered with the Mobility Management Entity (MME), a default EPS bearer is created, and an IP address is assigned by the Packet Data Network Gateway (PGW).
+
+Upon successful completion of the Attach procedure, the UE is ready to exchange user-plane traffic and access network services.
+
+## Message Summary
+
+| Step | Message | From | To | Purpose |
+|------|---------|------|----|---------|
+| 1 | Attach Request | UE | eNodeB | Initiates LTE network registration |
+| 2 | Initial UE Message | eNodeB | MME | Forwards the NAS Attach Request |
+| 3 | Authentication Information Request/Answer | MME | HSS | Retrieves authentication vectors |
+| 4 | Authentication Request/Response | MME | UE | Authenticates the subscriber |
+| 5 | Security Mode Command/Complete | MME | UE | Activates NAS security |
+| 6 | Update Location Request/Answer | MME | HSS | Updates subscriber location |
+| 7 | Create Session Request/Response | MME | SGW/PGW | Creates the default EPS bearer and allocates an IP address |
+| 8 | Attach Accept | MME | UE | Confirms successful attachment |
+| 9 | Attach Complete | UE | MME | Completes the Attach procedure |
+
+
+
+
 Detailed signaling procedures, sequence diagrams, troubleshooting scenarios, and references will be added in future updates.
