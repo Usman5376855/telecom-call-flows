@@ -238,5 +238,11 @@ Once the MME receives the Attach Complete message, the Attach procedure is consi
 | TAI Not Allowed | UE attempting to register in a restricted tracking area | Confirm TAI list configuration and roaming permissions. |
 | S1 Interface Failure | eNodeB unable to communicate with the MME | Verify S1 connectivity, SCTP association, and S1-AP signaling. |
 
+## References
 
+- 3GPP TS 23.401 – General Packet Radio Service (GPRS) Enhancements for E-UTRAN Access
+- 3GPP TS 24.301 – Non-Access-Stratum (NAS) Protocol for EPS
+- 3GPP TS 29.272 – Mobility Management Entity (MME) and Home Subscriber Server (HSS) Interface (S6a)
+- 3GPP TS 29.274 – GPRS Tunnelling Protocol Version 2 (GTPv2-C)
+- 3GPP TS 36.413 – S1 Application Protocol (S1-AP)
 Detailed signaling procedures, sequence diagrams, troubleshooting scenarios, and references will be added in future updates.
