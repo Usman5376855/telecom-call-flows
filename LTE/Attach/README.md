@@ -152,7 +152,23 @@ The MME stores the subscriber profile locally and uses it during session establi
 > **Key Point:** This step registers the subscriber with the serving MME and retrieves the subscription profile required for service provisioning.
 
 
+### 7. Create Session Request / Create Session Response (MME ↔ SGW ↔ PGW)
 
+Once the subscriber profile has been received from the HSS, the MME initiates session establishment by sending a **Create Session Request** to the Serving Gateway (SGW). The SGW forwards the request to the Packet Data Network Gateway (PGW), which allocates an IP address for the UE and creates the default EPS bearer.
+
+The PGW applies the subscriber's policy and QoS parameters and returns a **Create Session Response** through the SGW to the MME. At this stage, the user-plane path is established, allowing the UE to access packet data services after the Attach procedure is completed.
+
+**Interface:** S11 (MME ↔ SGW), S5/S8 (SGW ↔ PGW)  
+**Protocol:** GTPv2-C  
+**Direction:** MME → SGW → PGW → SGW → MME
+
+> **Key Point:** This step creates the default EPS bearer and assigns an IP address, enabling packet data connectivity.
+
+#### Related 3GPP Specifications
+
+- **3GPP TS 23.401** – EPS Architecture and Mobility Management
+- **3GPP TS 29.274** – GTPv2-C Protocol
+- **3GPP TS 23.060** – General Packet Radio Service (GPRS) Architecture
 
 
 
