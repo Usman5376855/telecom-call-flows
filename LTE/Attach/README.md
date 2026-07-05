@@ -39,6 +39,6 @@ The following network elements participate in the LTE Attach procedure:
 
 ## LTE Attach Signaling Flow
 
-![LTE Attach Procedure](images/lte attach.png)
+![LTE Attach Procedure](images/lte-attach.png)
 
 Detailed signaling procedures, sequence diagrams, troubleshooting scenarios, and references will be added in future updates.
