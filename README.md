@@ -30,20 +30,8 @@ This repository explains complex procedures in a practical and structured way us
 - Technical explanations
 - References to public standards
 
-## ⭐ Featured Procedure
 
-### LTE Attach Procedure
-
-The **LTE Attach Procedure** is the first completed guide in this repository.
-
-It includes:
-
-- End-to-end LTE Attach signaling flow
-- Message-by-message explanation
-- Common troubleshooting scenarios
-- References to relevant 3GPP specifications
-
-📂 **Location:** `LTE/Attach`
+📂 **Location:** [LTE Attach](LTE/Attach)
    ## Target Audience
 
 This repository is intended for:
@@ -84,7 +72,18 @@ telecom-call-flows/
 ├── Images/
 └── README.md
 ```
+## ⭐ Featured Procedure
 
+### LTE Attach Procedure
+
+The **LTE Attach Procedure** is the first completed guide in this repository.
+
+It includes:
+
+- End-to-end LTE Attach signaling flow
+- Message-by-message explanation
+- Common troubleshooting scenarios
+- References to relevant 3GPP specifications
 ## Learning Roadmap
 
 ### LTE
