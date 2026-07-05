@@ -1,4 +1,7 @@
 # Telecom Call Flows
+A comprehensive open-source knowledge base of LTE, EPC, IMS, VoLTE, VoNR, and 5G Core signaling procedures.
+
+This repository provides practical call flows, troubleshooting guides, protocol explanations, and references to relevant 3GPP standards for telecom engineers and mobile core network professionals.
 
 ![Status](https://img.shields.io/badge/Status-Active-success)
 
@@ -68,13 +71,17 @@ telecom-call-flows/
 
 ## Learning Roadmap
 
-## LTE
+### LTE
 
-- Attach
-- Service Request
-- Tracking Area Update
-- Bearers
-- Handover
+| Procedure | Status |
+|-----------|--------|
+| Attach | ✅ Completed |
+| Tracking Area Update | 🚧 Planned |
+| Service Request | 🚧 Planned |
+| X2 Handover | 🚧 Planned |
+| S1 Handover | 🚧 Planned |
+| Paging | 🚧 Planned |
+| Detach | 🚧 Planned |
 
 ### IMS
 
@@ -98,11 +105,16 @@ telecom-call-flows/
 - PDU Session Establishment
 - N2 Handover
 
-## Current Status
+## Progress
 
-This repository is under active development.
-
-New call flows, troubleshooting guides, and technical documentation will be added regularly.
+| Technology | Progress |
+|------------|----------|
+| LTE | 🟢 1 / 7 Procedures |
+| EPC | ⚪ Planned |
+| IMS | ⚪ Planned |
+| VoLTE | ⚪ Planned |
+| VoNR | ⚪ Planned |
+| 5G Core | ⚪ Planned |
 
 ## Contributing
 
@@ -123,7 +135,9 @@ Content is developed using publicly available technical resources, including:
 
 **Muhammad Usman**
 
-PS Core Engineer | Cloud Core Consultant
+PS Core Engineer | Cloud Core Optimization Consultant
+
+Specializing in LTE, EPC, IMS, VoLTE, VoNR, and 5G Core technologies.
 
 Interested in Mobile Core Networks, Cloud Native Telecom, and Telecom Automation & Optimization
 
