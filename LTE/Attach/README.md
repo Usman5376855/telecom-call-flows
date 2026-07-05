@@ -137,6 +137,19 @@ Once this procedure is completed, all subsequent NAS signaling messages are prot
 
 > **Key Point:** This step establishes a secure NAS signaling connection before the network proceeds with subscriber registration and bearer creation.
 
+### 6. Update Location Request / Update Location Answer (MME ↔ HSS)
+
+After NAS security has been successfully established, the MME updates the subscriber's current location in the HSS by sending an **Update Location Request (ULR)** over the **S6a** interface.
+
+The HSS records the serving MME, retrieves the subscriber's profile, and returns an **Update Location Answer (ULA)**. The subscriber profile typically contains the subscribed APNs, QoS parameters, roaming restrictions, AMBR, and other subscription information required to provide LTE services.
+
+The MME stores the subscriber profile locally and uses it during session establishment and bearer creation.
+
+**Interface:** S6a  
+**Protocol:** Diameter  
+**Direction:** MME → HSS → MME
+
+> **Key Point:** This step registers the subscriber with the serving MME and retrieves the subscription profile required for service provisioning.
 
 
 
