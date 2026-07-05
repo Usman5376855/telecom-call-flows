@@ -1,6 +1,8 @@
 # Telecom Call Flows
 A comprehensive open-source knowledge base of LTE, EPC, IMS, VoLTE, VoNR, and 5G Core signaling procedures.
+## Mission
 
+To build a comprehensive, standards-based telecom knowledge repository that helps engineers understand signaling procedures across LTE, EPC, IMS, VoLTE, VoNR, and 5G Core networks through practical documentation and real-world troubleshooting.
 This repository provides practical call flows, troubleshooting guides, protocol explanations, and references to relevant 3GPP standards for telecom engineers and mobile core network professionals.
 
 ![Status](https://img.shields.io/badge/Status-Active-success)
