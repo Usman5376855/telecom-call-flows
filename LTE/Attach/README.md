@@ -225,4 +225,18 @@ Once the MME receives the Attach Complete message, the Attach procedure is consi
 - 3GPP TS 29.272 – Mobility Management Entity (MME) and Home Subscriber Server (HSS) Interface
 - 3GPP TS 29.274 – GPRS Tunnelling Protocol Version 2 (GTPv2-C)
 
+## Common Troubleshooting
+
+| Issue | Possible Cause | Recommended Action |
+|------|----------------|--------------------|
+| Attach Reject | Invalid SIM, roaming restriction, or subscription issue | Verify EMM cause code and subscriber profile in the HSS. |
+| Authentication Failure | Incorrect authentication vectors or USIM mismatch | Check authentication vectors (RAND, XRES, AUTN) and verify USIM synchronization. |
+| Security Mode Failure | NAS security negotiation failed | Confirm supported integrity and ciphering algorithms on both UE and MME. |
+| Update Location Failure | HSS or Diameter connectivity issue | Verify S6a connectivity, Diameter peer status, and subscriber provisioning. |
+| Create Session Failure | APN or PGW configuration issue | Check APN configuration, PGW reachability, and GTPv2-C signaling. |
+| IP Address Allocation Failure | IP pool exhausted or APN misconfiguration | Verify available IP pools and APN configuration on the PGW. |
+| TAI Not Allowed | UE attempting to register in a restricted tracking area | Confirm TAI list configuration and roaming permissions. |
+| S1 Interface Failure | eNodeB unable to communicate with the MME | Verify S1 connectivity, SCTP association, and S1-AP signaling. |
+
+
 Detailed signaling procedures, sequence diagrams, troubleshooting scenarios, and references will be added in future updates.
