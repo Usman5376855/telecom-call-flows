@@ -123,6 +123,21 @@ The MME compares the received RES with the expected response (XRES) obtained fro
 **Protocol:** NAS  
 **Direction:** MME → UE → MME
 
+### 5. Security Mode Command / Security Mode Complete (MME ↔ UE)
+
+After successful subscriber authentication, the MME initiates the NAS security procedure by sending a **Security Mode Command** to the UE. This message instructs the UE to activate the selected integrity protection and ciphering algorithms for NAS signaling.
+
+The UE configures the requested security algorithms and responds with a **Security Mode Complete** message to confirm successful activation.
+
+Once this procedure is completed, all subsequent NAS signaling messages are protected against tampering and unauthorized access.
+
+**Interface:** S1-MME (NAS Signaling)  
+**Protocol:** NAS  
+**Direction:** MME → UE → MME
+
+> **Key Point:** This step establishes a secure NAS signaling connection before the network proceeds with subscriber registration and bearer creation.
+
+
 
 
 
