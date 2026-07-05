@@ -62,6 +62,21 @@ Upon successful completion of the Attach procedure, the UE is ready to exchange 
 | 8 | Attach Accept | MME | UE | Confirms successful attachment |
 | 9 | Attach Complete | UE | MME | Completes the Attach procedure |
 
+## Detailed Signaling
+
+### 1. Attach Request (UE → eNodeB)
+
+The LTE Attach procedure begins when the UE sends an **Attach Request** NAS message to the eNodeB. This message indicates that the UE wants to register with the EPC and access packet data services.
+
+The Attach Request typically includes:
+- IMSI or GUTI
+- UE Network Capability
+- EPS Attach Type
+- Last Visited TAI (if available)
+- PDN Connectivity Request
+
+The eNodeB does not process the NAS message. Instead, it encapsulates the message within an **Initial UE Message** over the S1-AP interface and forwards it to the MME.
+
 
 
 
