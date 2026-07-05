@@ -7,6 +7,7 @@ A comprehensive open-source knowledge base of LTE, EPC, IMS, VoLTE, VoNR, and 5G
 ## Mission
 
 To build a comprehensive, standards-based telecom knowledge repository that helps engineers understand signaling procedures across LTE, EPC, IMS, VoLTE, VoNR, and 5G Core networks through practical documentation and real-world troubleshooting.
+
 This repository provides practical call flows, troubleshooting guides, protocol explanations, and references to relevant 3GPP standards for telecom engineers and mobile core network professionals.
 
 ![Status](https://img.shields.io/badge/Status-Active-success)
@@ -33,9 +34,6 @@ This repository explains complex procedures in a practical and structured way us
 - Troubleshooting scenarios
 - Technical explanations
 - References to public standards
-
-
-📂 **Location:** [LTE Attach Procedure](LTE/Attach)
 
    ## Target Audience
 
@@ -89,6 +87,7 @@ It includes:
 - Message-by-message explanation
 - Common troubleshooting scenarios
 - References to relevant 3GPP specifications
+- 📂 **Location:** [LTE Attach Procedure](LTE/Attach)
 ## Learning Roadmap
 
 ### LTE
@@ -189,5 +188,8 @@ Interested in Mobile Core Networks, Cloud Native Telecom, and Telecom Automation
 ## License
 
 This project is licensed under the MIT License.
+---
+
+If you find this repository useful, consider giving it a ⭐ to support future telecom documentation.
 
 
