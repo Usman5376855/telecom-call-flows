@@ -170,7 +170,25 @@ The PGW applies the subscriber's policy and QoS parameters and returns a **Creat
 - **3GPP TS 29.274** – GTPv2-C Protocol
 - **3GPP TS 23.060** – General Packet Radio Service (GPRS) Architecture
 
+### 8. Attach Accept (MME → UE)
 
+After the default EPS bearer has been successfully established, the MME sends an **Attach Accept** message to the UE. This message confirms that the Attach procedure has been accepted and provides the information required for the UE to complete network registration.
+
+The Attach Accept message typically includes the assigned **GUTI (Globally Unique Temporary UE Identity)**, Tracking Area Identity (TAI), EPS Bearer Context information, and the IP address allocated during session establishment.
+
+Upon receiving this message, the UE configures the default EPS bearer and prepares to complete the Attach procedure.
+
+**Interface:** S1-MME (NAS Signaling)  
+**Protocol:** NAS  
+**Direction:** MME → UE
+
+> **Key Point:** This message confirms successful subscriber registration and delivers the information required for data connectivity.
+
+#### Related 3GPP Specifications
+
+- **3GPP TS 24.301** – Non-Access-Stratum (NAS) Protocol for EPS
+- **3GPP TS 23.401** – EPS Architecture and Mobility Management
+  
 
 
 Detailed signaling procedures, sequence diagrams, troubleshooting scenarios, and references will be added in future updates.
