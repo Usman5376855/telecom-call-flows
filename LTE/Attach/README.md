@@ -218,4 +218,11 @@ Once the MME receives the Attach Complete message, the Attach procedure is consi
 | Update Location Failure | HSS or Diameter connectivity issue |
 | TAI Not Allowed | UE attempting to register in a restricted tracking area |
 
+## References
+
+- 3GPP TS 23.401 – General Packet Radio Service (GPRS) Enhancements for E-UTRAN Access
+- 3GPP TS 24.301 – Non-Access-Stratum (NAS) Protocol for EPS
+- 3GPP TS 29.272 – Mobility Management Entity (MME) and Home Subscriber Server (HSS) Interface
+- 3GPP TS 29.274 – GPRS Tunnelling Protocol Version 2 (GTPv2-C)
+
 Detailed signaling procedures, sequence diagrams, troubleshooting scenarios, and references will be added in future updates.
