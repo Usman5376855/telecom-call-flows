@@ -77,6 +77,23 @@ The Attach Request typically includes:
 
 The eNodeB does not process the NAS message. Instead, it encapsulates the message within an **Initial UE Message** over the S1-AP interface and forwards it to the MME.
 
+### 2. Initial UE Message (eNodeB → MME)
+
+After receiving the NAS Attach Request from the UE, the eNodeB encapsulates the NAS message inside an **Initial UE Message** and forwards it to the MME over the **S1-AP** interface.
+
+The Initial UE Message allows the MME to create a temporary UE context and begin the mobility management procedure.
+
+The message typically contains:
+- NAS Attach Request
+- eNodeB UE S1AP ID
+- Tracking Area Identity (TAI)
+- E-UTRAN Cell Global Identifier (ECGI)
+- RRC Establishment Cause
+- S-TMSI (if available)
+
+Upon receiving this message, the MME starts processing the Attach procedure and determines whether subscriber authentication is required.
+
+
 
 
 
