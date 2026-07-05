@@ -93,6 +93,22 @@ The message typically contains:
 
 Upon receiving this message, the MME starts processing the Attach procedure and determines whether subscriber authentication is required.
 
+### 3. Authentication Information Request / Authentication Information Answer (MME ↔ HSS)
+
+After receiving the Initial UE Message, the MME checks whether it already has valid authentication vectors for the subscriber. If no valid vectors are available, the MME sends an **Authentication Information Request (AIR)** to the HSS over the **S6a** interface.
+
+The HSS retrieves the subscriber's authentication data and generates one or more **EPS Authentication Vectors (AVs)** using the subscriber's secret key stored in the USIM.
+
+The HSS then returns an **Authentication Information Answer (AIA)** containing the authentication vectors to the MME.
+
+The authentication vectors typically include:
+- RAND (Random Challenge)
+- XRES (Expected Response)
+- AUTN (Authentication Token)
+- KASME (Key for NAS Security)
+
+The MME stores these vectors and uses them in the next step to authenticate the UE.
+
 
 
 
