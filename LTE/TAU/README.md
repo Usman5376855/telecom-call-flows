@@ -1,5 +1,20 @@
 
 # LTE Tracking Area Update (TAU)
+## Table of Contents
+
+- Overview
+- Purpose
+- Types of TAU
+- When is TAU Triggered?
+- Network Elements
+- Call Flow
+- Step-by-Step Procedure
+- Important Information Elements (IEs)
+- Timers
+- Common Failure Scenarios
+- Troubleshooting
+- Engineer's Checklist
+- References
 
 ## Overview
 
