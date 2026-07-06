@@ -362,7 +362,23 @@ Before closing a TAU-related issue, verify the following:
 - ✅ Updated GUTI and Tracking Area List (TAL) were assigned when applicable.
 - ✅ No abnormal timer expiries or retransmissions occurred.
 
-  
+  ## References
+
+The following 3GPP specifications were used as technical references for this document:
+
+| Specification | Description |
+|--------------|-------------|
+| **3GPP TS 23.401** | General Packet Radio Service (GPRS) enhancements for Evolved Universal Terrestrial Radio Access Network (E-UTRAN). |
+| **3GPP TS 24.301** | Non-Access-Stratum (NAS) protocol for Evolved Packet System (EPS). |
+| **3GPP TS 29.274** | GPRS Tunnelling Protocol User Plane (GTPv2-C) for EPC interfaces. |
+| **3GPP TS 36.413** | S1 Application Protocol (S1AP). |
+| **3GPP TS 33.401** | EPS Security Architecture. |
+
+## About This Document
+
+This document is part of the **Telecom Call Flows** project, an open-source knowledge base covering LTE, EPC, IMS, VoLTE, VoNR, and 5G Core signaling procedures.
+
+The objective is to provide practical, engineer-focused documentation that combines 3GPP standards with real-world operational and troubleshooting experience from commercial mobile core networks.
 
 LTE/TAU/images/tau-call-flow.png
 
