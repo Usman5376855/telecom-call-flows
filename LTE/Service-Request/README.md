@@ -65,7 +65,7 @@ The following network elements participate in the LTE Service Request procedure:
 > Unlike the Attach procedure, the HSS is typically **not involved** during a normal Service Request because the UE context already exists in the MME. This makes the procedure significantly faster and reduces signaling within the EPC.
 
 ## Call Flow
-
+![LTE Service Request Call Flow](images/service-request-flow.png)
 The following call flow illustrates a typical LTE Service Request procedure. The exact signaling sequence may vary depending on the trigger (uplink or downlink), paging, and bearer modification requirements.
 
 | Step | Message | Protocol | Interface |
