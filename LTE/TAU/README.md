@@ -1,5 +1,12 @@
 
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+![LTE](https://img.shields.io/badge/Technology-LTE-blue)
+![3GPP](https://img.shields.io/badge/Standard-3GPP-orange)
+
 # LTE Tracking Area Update (TAU)
+**Last Updated:** July 2026
+
+**3GPP References:** TS 23.401, TS 24.301, TS 36.413
 ## Table of Contents
 
 - Overview
@@ -370,7 +377,12 @@ This document is part of the **Telecom Call Flows** project, an open-source know
 
 The objective is to provide practical, engineer-focused documentation that combines 3GPP standards with real-world operational and troubleshooting experience from commercial mobile core networks.
 
+## Related Procedures
 
+- LTE Attach
+- LTE Service Request
+- LTE Paging
+- LTE Detach
 
 
 
