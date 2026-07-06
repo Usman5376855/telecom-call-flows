@@ -268,5 +268,122 @@ The following table summarizes common Service Request failures, their possible c
 | User Plane Failure | GTP-U tunnel not established | Verify GTP-U tunnel endpoints, TEIDs, and user-plane routing. |
 | Timer Expiry | Procedure did not complete before timeout | Review retransmissions, signaling delays, and timer configuration. |
 
+## Troubleshooting
+
+When analyzing a failed LTE Service Request procedure, engineers should verify the following:
+
+### 1. Verify the Trigger
+
+Determine what initiated the Service Request:
+
+- Mobile Originated (MO) data
+- Mobile Terminated (MT) data following Paging
+- VoLTE call establishment
+- SMS over NAS
+- Other NAS signaling procedures
+
+### 2. Verify NAS Messages
+
+Confirm that the following NAS messages are present:
+
+- Service Request
+- Service Accept (if applicable)
+
+Ensure that the NAS message is correctly decoded and protected.
+
+### 3. Verify S1AP Messages
+
+Confirm successful exchange of:
+
+- Initial UE Message
+- Initial Context Setup Request
+- Initial Context Setup Response
+
+Verify that no S1AP Failure messages are present.
+
+### 4. Verify Bearer Modification
+
+Check the S11 interface for:
+
+- Modify Bearer Request
+- Modify Bearer Response
+
+Ensure that the SGW successfully updated the downlink GTP tunnel.
+
+### 5. Verify User Plane
+
+Confirm that:
+
+- GTP-U tunnels are established.
+- TEIDs are correct.
+- User traffic flows successfully after the procedure.
+
+### 6. Verify UE Context
+
+Check that:
+
+- UE context exists in the MME.
+- EPS Bearer Context is valid.
+- NAS Security Context is synchronized.
+
+### 7. Verify MME Logs
+
+Review MME logs for:
+
+- NAS reject causes
+- S1AP failures
+- Bearer modification failures
+- Timer expiry events
+- Context lookup failures
+
+### 8. Verify Interfaces
+
+Check signaling on the following interfaces:
+
+- Uu (UE ↔ eNodeB)
+- S1-MME (eNodeB ↔ MME)
+- S11 (MME ↔ SGW)
+- S5/S8 (SGW ↔ PGW, if applicable)
+
+### 9. Check the Final Outcome
+
+Determine whether the procedure completed successfully:
+
+- Service Accept received
+- Initial Context Setup completed
+- Modify Bearer completed
+- User-plane traffic established
+
+## Engineer's Checklist
+
+Before closing a Service Request-related issue, verify the following:
+
+- ✅ UE successfully initiated the Service Request.
+- ✅ Initial UE Message reached the MME.
+- ✅ Existing UE context was found in the MME.
+- ✅ Initial Context Setup completed successfully.
+- ✅ Modify Bearer completed successfully.
+- ✅ Correct GTP TEIDs were allocated.
+- ✅ User-plane tunnel was established.
+- ✅ No NAS or S1AP decoding errors were observed.
+- ✅ User traffic successfully resumed.
+- ✅ No abnormal timer expiries or retransmissions occurred.
+
+  ## References
+
+The following 3GPP specifications were used as technical references for this document:
+
+| Specification | Description |
+|--------------|-------------|
+| **3GPP TS 23.401** | GPRS Enhancements for E-UTRAN (EPC Architecture and Procedures). |
+| **3GPP TS 24.301** | Non-Access-Stratum (NAS) protocol for the Evolved Packet System (EPS). |
+| **3GPP TS 29.274** | GTPv2-C protocol for EPC interfaces, including S11 bearer management procedures. |
+| **3GPP TS 36.413** | S1 Application Protocol (S1AP). |
+| **3GPP TS 33.401** | EPS Security Architecture. |
+## About This Document
+
+This document is part of the **Telecom Call Flows** project, an open-source knowledge base covering LTE, EPC, IMS, VoLTE, VoNR, and 5G Core signaling procedures.
+
+The objective is to provide practical, engineer-focused documentation that combines 3GPP standards with real-world operational and troubleshooting experience from commercial mobile core networks.
 
 
