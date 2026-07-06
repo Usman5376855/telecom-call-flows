@@ -220,5 +220,53 @@ SGW
 │
 User Plane Active
 
+## Important Information Elements (IEs)
+
+The following Information Elements (IEs) are commonly found in the **Service Request**, **Initial Context Setup**, and **Modify Bearer** procedures.
+
+| Information Element | Description |
+|---------------------|-------------|
+| S-TMSI | Temporary UE identity used to identify the subscriber during the Service Request procedure. |
+| NAS Key Set Identifier (KSI) | Indicates the NAS security context currently used by the UE. |
+| EPS Bearer ID (EBI) | Identifies the EPS bearer that is resumed for user-plane traffic. |
+| M-TMSI | Part of the S-TMSI used by the MME to identify the UE. |
+| Tracking Area Identity (TAI) | Indicates the Tracking Area where the UE is currently located. |
+| E-UTRAN Cell Global Identifier (ECGI) | Identifies the serving LTE cell. |
+| GTP Tunnel Endpoint Identifier (TEID) | Identifies the user-plane tunnel between the eNodeB and SGW. |
+| QoS Parameters | Defines the Quality of Service for the resumed EPS bearer. |
+| Transport Layer Address | Specifies the IP address associated with the GTP tunnel endpoint. |
+
+> **Engineer Note**
+>
+> During MME trace analysis, the **S-TMSI**, **EPS Bearer ID (EBI)**, **TEID**, and **Tracking Area Identity (TAI)** are among the most important Information Elements. These fields allow engineers to correlate NAS, S1AP, and GTPv2-C signaling and verify that the correct bearer and tunnel are resumed.
+
+## Timers
+
+Several timers are associated with the LTE Service Request procedure.
+
+| Timer | Purpose |
+|--------|---------|
+| **T3417** | Supervises the Service Request procedure. If it expires, the UE assumes the procedure has failed. |
+| **T3417ext** | Extended supervision timer used in specific Service Request scenarios, depending on network implementation. |
+| **T3411** | Controls the waiting period before the UE retries certain NAS procedures after failure. |
+| **S1 Release Timer** | Used by the MME and eNodeB to release idle S1 signaling connections after inactivity. |
+> **Engineer Note**
+>
+> While the NAS timers ensure reliable completion of the Service Request procedure, the **S1 Release** mechanism is responsible for transitioning the UE back to **ECM-IDLE** after a period of inactivity. Frequent Service Requests may indicate that S1 connections are being released too aggressively or that applications are generating frequent background traffic.
+
+## Common Failure Scenarios
+
+The following table summarizes common Service Request failures, their possible causes, and recommended troubleshooting actions.
+
+| Failure Scenario | Possible Cause | Troubleshooting |
+|------------------|---------------|-----------------|
+| Service Request Rejected | Invalid UE context or registration state | Verify UE context in the MME and check NAS reject cause values. |
+| Initial Context Setup Failure | Radio resource allocation failure | Review eNodeB logs, radio conditions, and S1AP signaling. |
+| Modify Bearer Failure | SGW could not update the bearer | Verify S11 signaling, TEIDs, and SGW configuration. |
+| Authentication Failure | NAS security context is no longer valid | Check authentication vectors and NAS security procedures. |
+| S1AP Failure | Signaling failure between the eNodeB and MME | Verify SCTP connectivity, S1AP messages, and eNodeB status. |
+| User Plane Failure | GTP-U tunnel not established | Verify GTP-U tunnel endpoints, TEIDs, and user-plane routing. |
+| Timer Expiry | Procedure did not complete before timeout | Review retransmissions, signaling delays, and timer configuration. |
+
 
 
