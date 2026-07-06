@@ -383,7 +383,10 @@ The objective is to provide practical, engineer-focused documentation that combi
 - LTE Service Request
 - LTE Paging
 - LTE Detach
+## Related Procedures
 
+- [LTE Attach](../Attach/README.md)
+- Service Request *(Coming Soon)*
 
 
 
