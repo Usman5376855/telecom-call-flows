@@ -125,6 +125,135 @@ The following call flow illustrates a typical **Normal Tracking Area Update (TAU
  |--TAU Complete-->|                     |                   |
  |                 |-------------------->|                   |
 ```
+## Step-by-Step Procedure
+
+### Step 1 – TAU Request
+
+The UE initiates the Tracking Area Update procedure by sending a **TAU Request** NAS message to the MME via the eNodeB.
+
+The message contains the UE's identity, the update type (Normal, Periodic, Combined, etc.), old GUTI (if available), security parameters, and other mobility-related information required by the MME.
+
+**Purpose**
+
+- Inform the network that the UE requires a Tracking Area Update.
+- Identify the UE.
+- Indicate the reason for the TAU procedure.
+- Provide the current security context.
+
+---
+
+### Step 2 – Initial UE Message
+
+The eNodeB encapsulates the NAS TAU Request inside an **S1AP Initial UE Message** and forwards it to the MME.
+
+The Initial UE Message also includes radio access information such as:
+
+- ECGI (E-UTRAN Cell Global Identifier)
+- TAI (Tracking Area Identity)
+- S1AP UE IDs
+- RRC Establishment Cause
+
+**Purpose**
+
+- Transfer the NAS message to the MME.
+- Inform the MME about the UE's current serving cell.
+
+---
+
+### Step 3 – Authentication Procedure (Optional)
+
+If the MME determines that authentication is required, it sends an **Authentication Request** to the UE.
+
+The UE validates the challenge using the USIM and returns an **Authentication Response**.
+
+This step may be skipped if the existing security context is still valid.
+
+---
+
+### Step 4 – Security Mode Procedure (Optional)
+
+If required, the MME initiates a **Security Mode Command**.
+
+The UE verifies the selected security algorithms and responds with a **Security Mode Complete** message.
+
+This ensures that NAS signaling is integrity protected and encrypted.
+
+---
+
+### Step 5 – Subscriber Context Update (Optional)
+
+Depending on the mobility scenario, the MME may communicate with the HSS using the **Update Location Request (ULR)** and **Update Location Answer (ULA)** procedures.
+
+This typically occurs when:
+
+- The UE moves to a different MME.
+- Subscriber information needs to be refreshed.
+- The serving MME changes.
+
+---
+
+### Step 6 – TAU Accept
+
+After successfully processing the request, the MME sends a **TAU Accept** message.
+
+The message may include:
+
+- Updated Tracking Area List (TAL)
+- New GUTI (if allocated)
+- Updated T3412 timer value
+- EPS bearer information (if applicable)
+
+This indicates that the Tracking Area Update has completed successfully.
+
+---
+
+### Step 7 – TAU Complete
+
+The UE acknowledges the successful completion of the procedure by sending a **TAU Complete** message.
+
+After receiving this message, the MME updates the UE context and the TAU procedure is considered complete.
+
+> **Engineer Note**
+>
+> During troubleshooting, the **TAU Request** and **TAU Accept** messages are the most important NAS messages to analyze. If the procedure fails before the TAU Accept, engineers should verify authentication, security procedures, UE identity, TAI configuration, subscriber profile, and any inter-MME context transfer (S10) when applicable. In successful cases, also verify whether a new GUTI or updated Tracking Area List (TAL) was assigned.
+
+## Important Information Elements (IEs)
+
+The following Information Elements (IEs) are commonly found in the **TAU Request** and **TAU Accept** messages.
+
+| Information Element | Description |
+|---------------------|-------------|
+| EPS Update Type | Indicates the reason for the TAU procedure (Normal, Periodic, Combined, etc.). |
+| Old GUTI | Identifies the UE using its previously assigned Globally Unique Temporary Identifier. |
+| Native NAS Key Set Identifier (KSI) | Identifies the NAS security context currently used by the UE. |
+| UE Network Capability | Indicates the security and protocol capabilities supported by the UE. |
+| Tracking Area Identity (TAI) | Identifies the current Tracking Area where the UE is located. |
+| DRX Parameter | Indicates the UE's paging cycle, if provided. |
+| EPS Bearer Context Status | Indicates the status of the UE's existing EPS bearers. |
+| TMSI Status | Indicates whether the UE still holds a valid temporary identity. |
+| MS Network Capability *(optional)* | Provides additional UE capability information, mainly for interworking with legacy networks. |
+| Additional Update Type *(optional)* | Indicates special update scenarios such as CIoT optimizations. |
+
+> **Engineer Note**
+>
+> During trace analysis, the **Old GUTI**, **Tracking Area Identity (TAI)**, **EPS Update Type**, and **NAS Key Set Identifier (KSI)** are among the first Information Elements to verify. These fields help determine why the TAU was initiated, whether the UE is using a valid security context, and if the TAU was triggered by mobility, a periodic timer, or another event.
+
+## Timers
+
+Several timers are associated with the Tracking Area Update procedure.
+
+| Timer | Purpose |
+|--------|---------|
+| **T3412** | Controls the periodic Tracking Area Update interval. When the timer expires, the UE initiates a Periodic TAU. |
+| **T3402** | Started after certain attach or TAU failures. During this period, the UE is temporarily prevented from reattempting network registration. |
+| **T3411** | Controls the delay before the UE retries a failed registration procedure. |
+| **T3346** | Used by the network to instruct the UE to delay further registration attempts, helping to reduce signaling load during congestion. |
+
+> **Engineer Note**
+>
+> In commercial LTE networks, **T3412** is the timer most frequently associated with TAU procedures. If a large number of UEs perform Periodic TAU simultaneously due to timer configuration, the MME may experience a signaling surge. Operators typically optimize T3412 values to balance network load and UE battery consumption.
+
+
 LTE/TAU/images/tau-call-flow.png
 
 ![LTE TAU Call Flow](images/tau-call-flow.png)
