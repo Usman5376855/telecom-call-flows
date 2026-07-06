@@ -106,6 +106,119 @@ MME
 
 
 
+## Step-by-Step Procedure
+
+### Step 1 – Service Request
+
+The UE initiates the Service Request procedure by sending a **Service Request** NAS message to the MME via the eNodeB.
+
+The message identifies the UE using its S-TMSI and indicates that the UE requires signaling and user-plane resources to resume data communication.
+
+**Purpose**
+
+- Resume an existing EPS session.
+- Request the transition from ECM-IDLE to ECM-CONNECTED.
+- Provide the UE identity.
+- Resume user-plane connectivity.
+
+---
+
+### Step 2 – Initial UE Message
+
+The eNodeB encapsulates the NAS Service Request inside an **S1AP Initial UE Message** and forwards it to the MME.
+
+The message also contains radio access information, including:
+
+- ECGI (E-UTRAN Cell Global Identifier)
+- TAI (Tracking Area Identity)
+- eNB UE S1AP ID
+- RRC Establishment Cause
+
+**Purpose**
+
+- Deliver the NAS Service Request to the MME.
+- Inform the MME of the UE's current serving cell.
+
+---
+
+### Step 3 – UE Context Validation
+
+The MME validates the existing UE context.
+
+Typical checks include:
+
+- Existing EPS bearer context
+- NAS security context
+- UE registration status
+- Subscriber validity
+
+If the stored context is valid, the procedure continues without requiring a new Attach.
+
+---
+
+### Step 4 – Initial Context Setup
+
+The MME sends an **Initial Context Setup Request** to the eNodeB.
+
+The request contains:
+
+- Security information
+- EPS bearer context
+- Transport Layer Address
+- GTP TEID
+- QoS parameters
+
+The eNodeB allocates the required radio resources and replies with an **Initial Context Setup Response**.
+
+---
+
+### Step 5 – Modify Bearer Procedure
+
+The MME sends a **Modify Bearer Request** to the Serving Gateway (SGW).
+
+The SGW updates the downlink user-plane tunnel and replies with a **Modify Bearer Response**.
+
+This step activates the user-plane path for data transmission.
+
+---
+
+### Step 6 – Service Accept
+
+If required, the MME sends a **Service Accept** NAS message to the UE.
+
+This confirms that signaling and bearer resources have been successfully restored.
+
+---
+
+### Step 7 – User Data Transfer
+
+After completion of the signaling procedures, user-plane traffic resumes.
+
+The UE can now transmit and receive IP packets using the existing EPS bearer without performing a new Attach procedure.
+
+> **Engineer Note**
+>
+> During Service Request troubleshooting, engineers should verify that the **Initial Context Setup** and **Modify Bearer** procedures complete successfully. These two procedures establish the radio resources and update the user-plane tunnel. Failures at this stage commonly result in successful NAS signaling but no user data flow.
+
+UE
+│
+Service Request (NAS)
+│
+eNB
+│
+Initial UE Message (S1AP)
+│
+MME
+│
+Context Validation
+│
+Initial Context Setup (S1AP)
+│
+Modify Bearer (S11)
+│
+SGW
+│
+User Plane Active
 
 
 
