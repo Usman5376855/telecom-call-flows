@@ -79,5 +79,57 @@ The following network elements participate in the LTE Tracking Area Update proce
 | **PDN Gateway (PGW)** | Usually remains unchanged but continues providing connectivity to external packet data networks throughout the mobility procedure. |
 
 
+## Call Flow
+
+The following call flow illustrates a typical **Normal Tracking Area Update (TAU)** procedure in an LTE EPC network. The exact signaling sequence may vary depending on whether authentication, security procedures, MME relocation, or bearer updates are required.
+
+| Step | Message | Interface |
+|------|---------|-----------|
+| 1 | TAU Request | UE → eNodeB → MME |
+| 2 | Initial UE Message | S1AP |
+| 3 | Authentication Request *(if required)* | MME → UE |
+| 4 | Authentication Response | UE → MME |
+| 5 | Security Mode Command *(if required)* | MME → UE |
+| 6 | Security Mode Complete | UE → MME |
+| 7 | Update Location Request *(optional)* | MME → HSS |
+| 8 | Update Location Answer *(optional)* | HSS → MME |
+| 9 | TAU Accept | MME → UE |
+|10 | TAU Complete | UE → MME |
+
+> **Engineer Note**
+>
+> Authentication and Security Mode procedures are not executed during every TAU. If the existing security context remains valid, the MME may directly process the TAU Request and respond with a TAU Accept, reducing signaling overhead and improving mobility performance.
+
+### Normal TAU Message Flow
+
+```text
+ UE              eNodeB                 MME                 HSS
+ |                 |                     |                   |
+ |--TAU Request--->|                     |                   |
+ |                 |--Initial UE Msg---->|                   |
+ |                 |                     |                   |
+ |                 |<--Authentication----| (optional)        |
+ |<--Auth Req------|                     |                   |
+ |--Auth Resp----->|                     |                   |
+ |                 |-------------------->|                   |
+ |                 |                     |                   |
+ |                 |<--Security Mode-----| (optional)        |
+ |<--Sec Mode Cmd--|                     |                   |
+ |--Sec Complete-->|                     |                   |
+ |                 |-------------------->|                   |
+ |                 |                     |                   |
+ |                 |                     |--ULR------------->|
+ |                 |                     |<--ULA-------------|
+ |                 |                     |                   |
+ |<--TAU Accept----|                     |                   |
+ |--TAU Complete-->|                     |                   |
+ |                 |-------------------->|                   |
+```
+LTE/TAU/images/tau-call-flow.png
+
+![LTE TAU Call Flow](images/tau-call-flow.png)
+
+
+
 
 
