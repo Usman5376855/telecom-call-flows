@@ -253,6 +253,116 @@ Several timers are associated with the Tracking Area Update procedure.
 >
 > In commercial LTE networks, **T3412** is the timer most frequently associated with TAU procedures. If a large number of UEs perform Periodic TAU simultaneously due to timer configuration, the MME may experience a signaling surge. Operators typically optimize T3412 values to balance network load and UE battery consumption.
 
+## Common Failure Scenarios
+
+The following table summarizes common TAU failures, their possible causes, and recommended troubleshooting actions.
+
+| Failure Scenario | Possible Cause | Troubleshooting |
+|------------------|---------------|-----------------|
+| Tracking Area Not Allowed | UE entered a forbidden or unsupported Tracking Area | Verify TAC configuration, TAI List, and neighbor cell configuration. |
+| PLMN Not Allowed | Subscriber is not permitted to register on the selected PLMN | Verify roaming agreements, PLMN configuration, and subscriber profile in the HSS. |
+| Illegal UE | Invalid or unknown UE identity | Verify IMSI/GUTI, subscriber provisioning, and HSS database records. |
+| Authentication Failure | Authentication vectors do not match or USIM verification failed | Check Authentication Request/Response messages, HSS vectors, and NAS security parameters. |
+| Security Mode Failure | NAS security negotiation failed | Verify selected integrity and ciphering algorithms, NAS Key Set Identifier (KSI), and security context synchronization. |
+| MME Context Transfer Failure | UE context could not be transferred during inter-MME mobility | Verify S10 connectivity, context transfer procedures, and source/target MME communication. |
+| TAU Reject Received | The MME rejects the TAU request | Analyze the EMM cause value and determine the rejection reason according to 3GPP specifications. |
+| Timer Expiry | UE does not receive a response before timer expiration | Verify radio conditions, S1 signaling, retransmissions, and MME processing delays. |
+
+## Troubleshooting
+
+When analyzing a failed Tracking Area Update procedure, engineers should verify the following:
+
+### 1. Verify the Trigger
+
+- Was the TAU triggered by mobility or by the T3412 periodic timer?
+- Did the UE move outside its Tracking Area List (TAL)?
+
+### 2. Verify NAS Messages
+
+Confirm that the following NAS messages are present:
+
+- TAU Request
+- Authentication Request / Response (if applicable)
+- Security Mode Command / Complete (if applicable)
+- TAU Accept or TAU Reject
+- TAU Complete
+
+### 3. Verify Tracking Area Information
+
+Check:
+
+- MCC
+- MNC
+- TAC
+- Tracking Area Identity (TAI)
+- Tracking Area List (TAL)
+
+Ensure the reported TAC belongs to the configured Tracking Area List.
+
+### 4. Verify Subscriber Information
+
+Confirm that:
+
+- IMSI is valid.
+- GUTI is correctly assigned.
+- Subscriber is active in the HSS.
+- Roaming permissions are correctly configured.
+
+### 5. Verify Security
+
+Check:
+
+- Authentication vectors
+- NAS security context
+- NAS Key Set Identifier (KSI)
+- Integrity protection
+- Ciphering algorithms
+
+### 6. Verify MME Logs
+
+Review MME logs for:
+
+- EMM Cause Values
+- NAS Reject Causes
+- Authentication failures
+- Context transfer failures
+- Timer expiry events
+
+### 7. Verify Interfaces
+
+Check signaling on the following interfaces:
+
+- Uu (UE ↔ eNodeB)
+- S1-MME (eNodeB ↔ MME)
+- S6a (MME ↔ HSS)
+- S10 (MME ↔ MME, if applicable)
+
+### 8. Check the Final Outcome
+
+Determine whether the procedure ended with:
+
+- TAU Accept
+- TAU Reject
+- Authentication Failure
+- Security Failure
+- Radio Failure
+- UE Timeout
+## Engineer's Checklist
+
+Before closing a TAU-related issue, verify the following:
+
+- ✅ UE successfully initiated the TAU Request.
+- ✅ Correct TAC and TAI were received by the MME.
+- ✅ Authentication completed successfully (if required).
+- ✅ Security Mode procedure completed successfully (if required).
+- ✅ Subscriber profile was successfully retrieved from the HSS (if applicable).
+- ✅ No S1AP or NAS decoding errors were observed.
+- ✅ TAU Accept was sent by the MME.
+- ✅ UE responded with TAU Complete.
+- ✅ Updated GUTI and Tracking Area List (TAL) were assigned when applicable.
+- ✅ No abnormal timer expiries or retransmissions occurred.
+
+  
 
 LTE/TAU/images/tau-call-flow.png
 
