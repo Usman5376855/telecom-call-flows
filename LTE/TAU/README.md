@@ -95,7 +95,7 @@ The following network elements participate in the LTE Tracking Area Update proce
 
 
 ## Call Flow
-
+![LTE Tracking Area Update Call Flow](images/tau-call-flow.png)
 The following call flow illustrates a typical **Normal Tracking Area Update (TAU)** procedure in an LTE EPC network. The exact signaling sequence may vary depending on whether authentication, security procedures, MME relocation, or bearer updates are required.
 
 | Step | Message | Interface |
@@ -395,9 +395,6 @@ This document is part of the **Telecom Call Flows** project, an open-source know
 
 The objective is to provide practical, engineer-focused documentation that combines 3GPP standards with real-world operational and troubleshooting experience from commercial mobile core networks.
 
-LTE/TAU/images/tau-call-flow.png
-
-![LTE TAU Call Flow](images/tau-call-flow.png)
 
 
 
