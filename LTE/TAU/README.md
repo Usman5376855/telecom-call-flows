@@ -115,31 +115,6 @@ The following call flow illustrates a typical **Normal Tracking Area Update (TAU
 >
 > Authentication and Security Mode procedures are not executed during every TAU. If the existing security context remains valid, the MME may directly process the TAU Request and respond with a TAU Accept, reducing signaling overhead and improving mobility performance.
 
-### Normal TAU Message Flow
-
-```text
- UE              eNodeB                 MME                 HSS
- |                 |                     |                   |
- |--TAU Request--->|                     |                   |
- |                 |--Initial UE Msg---->|                   |
- |                 |                     |                   |
- |                 |<--Authentication----| (optional)        |
- |<--Auth Req------|                     |                   |
- |--Auth Resp----->|                     |                   |
- |                 |-------------------->|                   |
- |                 |                     |                   |
- |                 |<--Security Mode-----| (optional)        |
- |<--Sec Mode Cmd--|                     |                   |
- |--Sec Complete-->|                     |                   |
- |                 |-------------------->|                   |
- |                 |                     |                   |
- |                 |                     |--ULR------------->|
- |                 |                     |<--ULA-------------|
- |                 |                     |                   |
- |<--TAU Accept----|                     |                   |
- |--TAU Complete-->|                     |                   |
- |                 |-------------------->|                   |
-```
 ## Step-by-Step Procedure
 
 ### Step 1 – TAU Request
