@@ -379,15 +379,6 @@ The objective is to provide practical, engineer-focused documentation that combi
 
 ## Related Procedures
 
-- LTE Attach
-- LTE Service Request
-- LTE Paging
-- LTE Detach
-## Related Procedures
-
-markdown
-## Related Procedures
-
 - [LTE Attach](../Attach/README.md)
 - [LTE Service Request](../Service-Request/README.md)
 - LTE Paging *(Coming Soon)*
