@@ -49,9 +49,11 @@ Before the X2 Handover procedure can occur:
 
 ## Call Flow
 
-> *(X2 Handover call flow diagram will be added in the next step.)*
+Seamless inter-eNB handover using the X2 interface without involving the MME in the radio handover decision. The MME participates only during the Path Switch procedure after the UE has successfully attached to the target eNB.
 
----
+📖 **Procedure:** [LTE X2 Handover](LTE/X2-Handover/README.md)
+
+![LTE X2 Handover Call Flow](LTE/X2-Handover/x2-handover-call-flow.png)
 
 ## Handover Triggers
 
