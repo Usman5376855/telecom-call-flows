@@ -492,4 +492,32 @@ The **End Marker** is a **GTP-U** message and is **optional**. Its use depends o
 * Delayed release of the old GTP-U tunnel.
 * Packet loss caused by incomplete user-plane synchronization.
 
+## Related Procedures
+
+The following LTE mobility and session management procedures are closely related to X2 Handover:
+
+- [S1 Handover](../S1-Handover/README.md)  
+  Used when X2 interface is unavailable between source and target eNodeB, or when inter-MME mobility is required.
+
+- [Tracking Area Update (TAU)](../TAU/README.md)  
+  Performed after mobility events when the UE moves into a new Tracking Area or requires location update with the EPC.
+
+- [Service Request](../Service-Request/README.md)  
+  Triggered when a UE in ECM-IDLE state needs to resume data connectivity after mobility or paging.
+
+- [Dedicated Bearer Establishment](../Dedicated-Bearer/README.md)  
+  Related to maintaining QoS bearers during active sessions, especially for VoLTE and real-time services.
+
+- [CSFB (Circuit Switched Fallback)](../CSFB/README.md)  
+  Related mobility procedure for LTE voice users falling back to 3G/2G networks.
+
+- [SRVCC (Single Radio Voice Call Continuity)](../SRVCC/README.md)  
+  Used for seamless voice call mobility from LTE to legacy circuit-switched networks.
+
+- [Path Switch Procedure](../Path-Switch/README.md)  
+  Executed after successful X2 Handover to update the EPC user-plane path towards the target eNodeB.
+
+- [eNodeB to MME Signaling (S1-MME)](../S1-Interface/README.md)  
+  Provides the control-plane signaling framework used during LTE mobility procedures.
+
 
