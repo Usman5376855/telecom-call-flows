@@ -145,7 +145,138 @@ The UE does **not** continuously listen to the radio interface while in **ECM-ID
 * UE camping on the wrong cell or Tracking Area.
 * Radio interference resulting in Paging message loss.
 * eNodeB fails to broadcast the Paging message after receiving the S1AP Paging request.
+## 4. RRC Connection Request (UE → eNodeB)
 
+After receiving the **RRC Paging** message and recognizing its identity, the UE initiates the establishment of an RRC connection by sending an **RRC Connection Request** message to the serving eNodeB.
+
+The RRC Connection Request indicates that the UE wants to transition from **ECM-IDLE** to **ECM-CONNECTED** so that the pending downlink data or signaling can be delivered. The eNodeB processes the request and prepares to establish the radio connection.
+
+The RRC Connection Request message typically contains:
+
+* Establishment Cause
+* UE Identity (Initial UE Identity)
+* Random Access procedure information
+
+**Purpose**
+
+* Initiate the establishment of an RRC connection.
+* Respond to the received Paging message.
+* Begin the transition from ECM-IDLE to ECM-CONNECTED.
+
+**Key Point**
+
+The UE sends the RRC Connection Request only after successfully decoding the Paging message intended for it. Before this message, the UE has no dedicated radio resources allocated by the eNodeB.
+
+**Common Troubleshooting**
+
+* Random Access procedure failure.
+* Poor radio coverage preventing the request from reaching the eNodeB.
+* RRC Connection Request timeout.
+* High uplink interference causing message loss.
+* eNodeB unable to process new RRC connection requests due to congestion.
+
+---
+
+## 5. RRC Connection Setup (eNodeB → UE)
+
+After successfully receiving the RRC Connection Request, the eNodeB allocates the required radio resources and responds with an **RRC Connection Setup** message.
+
+The RRC Connection Setup configures the initial radio parameters required for communication between the UE and the network. Once received, the UE establishes the Signaling Radio Bearer (SRB) and prepares to send NAS signaling.
+
+The RRC Connection Setup message typically contains:
+
+* Radio Resource Configuration
+* Signaling Radio Bearer (SRB) configuration
+* Physical layer configuration
+* MAC configuration
+* RLC configuration
+
+**Purpose**
+
+* Allocate radio resources for the UE.
+* Establish the initial signaling connection.
+* Prepare the UE for NAS message transmission.
+
+**Key Point**
+
+At this stage, only the radio signaling connection is established. User-plane traffic cannot yet be transmitted until the core network completes the Service Request procedure and bearer setup.
+
+**Common Troubleshooting**
+
+* RRC Connection Setup not transmitted by the eNodeB.
+* Radio configuration failure.
+* UE unable to decode the RRC Connection Setup message.
+* RRC setup timer expiry.
+* Cell congestion preventing resource allocation.
+
+---
+
+## 6. RRC Connection Setup Complete + NAS Service Request (UE → eNodeB)
+
+After successfully configuring the radio connection, the UE sends an **RRC Connection Setup Complete** message to the eNodeB. This message encapsulates the **NAS Service Request**, informing the MME that the UE is responding to the Paging procedure.
+
+The NAS Service Request allows the MME to identify the UE, verify its security context, and resume the suspended EPS bearers. The eNodeB transparently forwards the NAS message to the MME without modifying its contents.
+
+The message typically contains:
+
+* RRC Connection Setup Complete
+* NAS Service Request
+* UE Identity
+* Selected PLMN (when applicable)
+
+**Purpose**
+
+* Confirm successful establishment of the RRC connection.
+* Deliver the NAS Service Request to the MME.
+* Resume LTE signaling and user-plane connectivity.
+
+**Key Point**
+
+The Paging procedure itself does not restore connectivity. It simply notifies the UE. The actual restoration of the connection begins when the UE sends the NAS Service Request.
+
+**Common Troubleshooting**
+
+* NAS Service Request missing from the RRC message.
+* Security context mismatch.
+* Invalid NAS message.
+* UE context not found in the MME.
+* Radio message corruption.
+
+---
+
+## 7. Initial UE Message (eNodeB → MME)
+
+After receiving the encapsulated NAS Service Request, the eNodeB forwards it to the MME using the **Initial UE Message** over the **S1-MME interface**.
+
+The Initial UE Message establishes the signaling association between the UE and the MME. It includes the NAS Service Request along with information identifying the serving eNodeB and the UE's current location.
+
+The Initial UE Message typically contains:
+
+* NAS Service Request
+* eNB UE S1AP ID
+* TAI (Tracking Area Identity)
+* ECGI (E-UTRAN Cell Global Identifier)
+* S-TMSI (when available)
+
+**Purpose**
+
+* Forward the NAS Service Request to the MME.
+* Associate the UE with the serving eNodeB.
+* Allow the MME to continue the Service Request procedure.
+
+**Key Point**
+
+The eNodeB does not interpret or modify the NAS Service Request. It simply encapsulates the NAS message inside the S1AP Initial UE Message and forwards it to the MME.
+
+**Common Troubleshooting**
+
+* Initial UE Message not received by the MME.
+* Incorrect TAI or ECGI information.
+* S1 interface communication failure.
+* UE context mismatch.
+* S1AP message decoding errors.
+
+```
 ---
 
 ## Common Paging Triggers
