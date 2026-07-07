@@ -248,7 +248,15 @@ Once the MME receives the Attach Complete message, the Attach procedure is consi
 ---
 ## Related Procedures
 
+```markdown
+## Related Procedures
+
 - [Tracking Area Update (TAU)](../TAU/README.md)
+- [LTE Service Request](../Service-Request/README.md)
+- LTE Paging *(Coming Soon)*
+- LTE Detach *(Coming Soon)*
+```
+
 **Author:** Muhammad Usman
 
 If you found this document helpful, feel free to ⭐ this repository and follow for more LTE, VoLTE, IMS, EPC, and 5G Core signaling documentation.
