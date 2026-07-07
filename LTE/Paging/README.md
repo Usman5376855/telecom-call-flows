@@ -45,7 +45,17 @@ Before Paging can occur:
 * IMS Core (for VoLTE mobile-terminated calls)
 
 ---
+## Common Paging Triggers
 
+The network may initiate Paging for several reasons, including:
+
+* Incoming VoLTE call
+* Mobile-terminated SMS
+* Downlink user data
+* NAS signaling
+* Emergency notifications
+* IMS registration updates
+---
 ## Call Flow
 
 The following diagram illustrates the complete LTE Paging signaling procedure.
@@ -82,6 +92,14 @@ The Serving Gateway (SGW) or IMS notifies the Mobility Management Entity (MME) t
 **Key Point**
 
 Paging is initiated only when the UE is in **ECM-IDLE**. If the UE is already in **ECM-CONNECTED**, the network delivers data directly without paging.
+
+**Common Troubleshooting**
+
+* Downlink data notification not received by the MME.
+* UE context not found in the MME.
+* Incorrect Tracking Area List (TAL).
+* Paging procedure not initiated despite pending downlink data.
+* IMS or SGW signaling failure preventing paging initiation.
 
 ### 2. S1AP Paging (MME → eNodeB)
 
@@ -145,6 +163,8 @@ The UE does **not** continuously listen to the radio interface while in **ECM-ID
 * UE camping on the wrong cell or Tracking Area.
 * Radio interference resulting in Paging message loss.
 * eNodeB fails to broadcast the Paging message after receiving the S1AP Paging request.
+
+   ---
 ## 4. RRC Connection Request (UE → eNodeB)
 
 After receiving the **RRC Paging** message and recognizing its identity, the UE initiates the establishment of an RRC connection by sending an **RRC Connection Request** message to the serving eNodeB.
@@ -155,7 +175,6 @@ The RRC Connection Request message typically contains:
 
 * Establishment Cause
 * UE Identity (Initial UE Identity)
-* Random Access procedure information
 
 **Purpose**
 
@@ -217,7 +236,7 @@ After successfully configuring the radio connection, the UE sends an **RRC Conne
 
 The NAS Service Request allows the MME to identify the UE, verify its security context, and resume the suspended EPS bearers. The eNodeB transparently forwards the NAS message to the MME without modifying its contents.
 
-The message typically contains:
+The RRC Connection Setup Complete message typically contains:
 
 * RRC Connection Setup Complete
 * NAS Service Request
@@ -250,7 +269,7 @@ After receiving the encapsulated NAS Service Request, the eNodeB forwards it to 
 
 The Initial UE Message establishes the signaling association between the UE and the MME. It includes the NAS Service Request along with information identifying the serving eNodeB and the UE's current location.
 
-The Initial UE Message typically contains:
+The S1AP Initial UE Message typically contains:
 
 * NAS Service Request
 * eNB UE S1AP ID
@@ -275,21 +294,6 @@ The eNodeB does not interpret or modify the NAS Service Request. It simply encap
 * S1 interface communication failure.
 * UE context mismatch.
 * S1AP message decoding errors.
-
-```
----
-
-## Common Paging Triggers
-
-The network may initiate Paging for several reasons, including:
-
-* Incoming VoLTE call
-* Mobile-terminated SMS
-* Downlink user data
-* NAS signaling
-* Emergency notifications
-* IMS registration updates
-
 ---
 
 ## Troubleshooting
@@ -305,6 +309,7 @@ Common issues covered in this section include:
 * Service Request not triggered after Paging.
 
 ---
+The LTE Paging procedure is completed after the UE successfully resumes signaling and user-plane connectivity through the Service Request procedure.
 
 ## References
 
