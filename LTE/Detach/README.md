@@ -50,9 +50,13 @@ Before the Detach procedure can occur:
 
 ## Call Flow
 
-> *(Detach call flow diagram will be added in the next step.)*
+The following diagram illustrates the complete LTE Detach signaling procedure. The UE initiates the Detach procedure by sending a NAS Detach Request to the MME through the eNodeB. The MME then releases the EPS bearer context, user-plane resources, and radio connection before completing the Detach procedure.
 
----
+<p align="center">
+  <img src="./images/detach-call-flow.png" alt="LTE Detach Call Flow" width="100%">
+</p>
+
+**Figure 1.** LTE Detach signaling procedure between the UE, eNodeB, MME, SGW, and PGW.
 
 ## Detach Triggers
 
