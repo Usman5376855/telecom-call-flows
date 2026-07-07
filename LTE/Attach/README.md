@@ -1,3 +1,7 @@
+
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+![LTE](https://img.shields.io/badge/Technology-LTE-blue)
+![3GPP](https://img.shields.io/badge/Standard-3GPP-orange)
 # LTE Attach Procedure
 
 ## Overview
