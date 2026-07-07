@@ -48,7 +48,13 @@ Before Paging can occur:
 
 ## Call Flow
 
-> *(Paging call flow diagram will be added in the next step.)*
+The following diagram illustrates the complete LTE Paging signaling procedure.
+
+<p align="center">
+  <img src="./images/paging-call-flow.png" alt="LTE Paging Call Flow" width="100%">
+</p>
+
+**Figure 1.** LTE Paging signaling procedure.
 
 ---
 
