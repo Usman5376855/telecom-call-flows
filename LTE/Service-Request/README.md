@@ -386,4 +386,14 @@ This document is part of the **Telecom Call Flows** project, an open-source know
 
 The objective is to provide practical, engineer-focused documentation that combines 3GPP standards with real-world operational and troubleshooting experience from commercial mobile core networks.
 
+```markdown
+## Related Procedures
+
+- [LTE Attach](../Attach/README.md)
+- [Tracking Area Update (TAU)](../TAU/README.md)
+- LTE Paging *(Coming Soon)*
+- LTE Detach *(Coming Soon)*
+```
+
+
 
