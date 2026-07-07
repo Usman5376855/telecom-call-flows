@@ -83,6 +83,38 @@ The Serving Gateway (SGW) or IMS notifies the Mobility Management Entity (MME) t
 
 Paging is initiated only when the UE is in **ECM-IDLE**. If the UE is already in **ECM-CONNECTED**, the network delivers data directly without paging.
 
+### 2. S1AP Paging (MME → eNodeB)
+
+After determining that the UE is in **ECM-IDLE** and has pending downlink traffic or signaling, the Mobility Management Entity (MME) sends an **S1AP Paging** message to one or more eNodeBs serving the UE's registered Tracking Area(s).
+
+The MME selects the appropriate eNodeB(s) based on the UE's last known **Tracking Area List (TAL)**. Each selected eNodeB receives the Paging request over the **S1-MME interface** and prepares to broadcast the Paging message over the radio interface.
+
+The S1AP Paging message typically contains:
+
+* UE Identity (S-TMSI or IMSI)
+* Tracking Area Identity (TAI) List
+* Paging DRX (optional)
+* CN Domain (PS or CS, when applicable)
+* Paging Priority (optional)
+
+**Purpose**
+
+* Notify the serving eNodeB(s) that an idle UE needs to be paged.
+* Provide sufficient information for the eNodeB to identify and page the correct UE.
+* Initiate radio paging within the UE's registered Tracking Area(s).
+
+**Key Point**
+
+The MME may send the Paging message to **multiple eNodeBs** if the UE has registered a **Tracking Area List (TAL)** containing more than one Tracking Area. This increases the likelihood of successfully reaching the idle UE without knowing its exact serving cell.
+
+**Common Troubleshooting**
+
+* Paging sent to an incorrect Tracking Area due to an outdated UE location.
+* Missing or invalid UE identity in the Paging message.
+* S1 interface failures between the MME and eNodeB.
+* Paging discarded because the eNodeB is unavailable or overloaded.
+* Paging congestion caused by a high number of simultaneous paging requests.
+
 
 ---
 
