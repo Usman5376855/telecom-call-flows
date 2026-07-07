@@ -60,7 +60,29 @@ The following diagram illustrates the complete LTE Paging signaling procedure.
 
 ## Message Sequence
 
-The detailed explanation of each signaling message will be added in the following sections.
+### 1. Downlink Data or Mobile-Terminated Service
+
+The LTE Paging procedure begins when the network has pending traffic or signaling for a UE that is currently in **ECM-IDLE** state. Since the UE does not have an active S1 signaling connection, the network cannot immediately deliver the information.
+
+Typical paging triggers include:
+
+* Incoming VoLTE call (Mobile-Terminated Call)
+* Mobile-Terminated SMS
+* Downlink user data
+* NAS signaling initiated by the core network
+
+The Serving Gateway (SGW) or IMS notifies the Mobility Management Entity (MME) that data or signaling is waiting for the UE. The MME checks the UE context, identifies the last known Tracking Area List (TAL), and prepares to page the UE through the appropriate eNodeB(s).
+
+**Purpose**
+
+* Detect pending downlink traffic for an idle UE.
+* Identify the UE's registered Tracking Area(s).
+* Initiate the LTE Paging procedure.
+
+**Key Point**
+
+Paging is initiated only when the UE is in **ECM-IDLE**. If the UE is already in **ECM-CONNECTED**, the network delivers data directly without paging.
+
 
 ---
 
