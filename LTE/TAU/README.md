@@ -385,7 +385,7 @@ The objective is to provide practical, engineer-focused documentation that combi
 - LTE Detach
 ## Related Procedures
 
-```markdown
+markdown
 ## Related Procedures
 
 - [LTE Attach](../Attach/README.md)
