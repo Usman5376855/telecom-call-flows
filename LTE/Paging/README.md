@@ -115,6 +115,36 @@ The MME may send the Paging message to **multiple eNodeBs** if the UE has regist
 * Paging discarded because the eNodeB is unavailable or overloaded.
 * Paging congestion caused by a high number of simultaneous paging requests.
 
+### 3. RRC Paging (eNodeB → UE)
+
+Upon receiving the **S1AP Paging** message from the MME, the eNodeB broadcasts an **RRC Paging** message over the LTE air interface (Uu interface). Unlike S1AP Paging, which is exchanged between the MME and eNodeB, RRC Paging is transmitted wirelessly for the UE to receive.
+
+The eNodeB broadcasts the Paging message only within the Tracking Area(s) specified by the MME. The UE, while in **ECM-IDLE**, periodically wakes up according to its configured **Discontinuous Reception (DRX)** cycle to monitor the Paging Channel (PCH). If the Paging message contains the UE's identity, the UE recognizes that the page is intended for it and prepares to establish an RRC connection.
+
+The RRC Paging message typically includes:
+
+* UE Identity (S-TMSI or IMSI)
+* Paging Record(s)
+* Paging Cause (when applicable)
+* System information required for paging reception
+
+**Purpose**
+
+* Notify the idle UE that the network has pending downlink data or signaling.
+* Trigger the UE to establish an RRC connection.
+* Maintain low battery consumption by allowing the UE to monitor the Paging Channel only during its configured Paging Occasion.
+
+**Key Point**
+
+The UE does **not** continuously listen to the radio interface while in **ECM-IDLE**. Instead, it wakes up only during its configured **Paging Occasion (PO)**, determined by its **DRX cycle**. This mechanism significantly reduces battery consumption while ensuring that the network can still reach the UE when required.
+
+**Common Troubleshooting**
+
+* UE does not receive the Paging message due to poor radio coverage.
+* Incorrect DRX configuration causing missed Paging Occasions.
+* UE camping on the wrong cell or Tracking Area.
+* Radio interference resulting in Paging message loss.
+* eNodeB fails to broadcast the Paging message after receiving the S1AP Paging request.
 
 ---
 
