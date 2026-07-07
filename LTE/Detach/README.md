@@ -106,7 +106,6 @@ The NAS Detach Request is a **NAS EMM (EPS Mobility Management)** message protec
 * NAS integrity verification failure.
 * UE powers off before transmitting the Detach Request.
 
-```
 ## 2. Initial UE Message (eNodeB → MME)
 
 After receiving the **NAS Detach Request** from the UE, the eNodeB encapsulates the NAS message within an **S1AP Initial UE Message** and forwards it to the Mobility Management Entity (MME) over the **S1-MME interface**.
