@@ -91,9 +91,69 @@ The following diagram illustrates the signaling flow for the Circuit Switched Fa
 
 The CSFB procedure is considered successful when:
 
-- The UE is redirected or handed over to the target GERAN/UTRAN network.
-- The Circuit Switched voice call is successfully established.
-- The voice call remains stable throughout its duration.
-- After call release, the UE successfully returns to LTE and resumes EPS services.
+- The UE successfully initiates or responds to the CSFB procedure.
+- The UE is redirected or handed over to the target UTRAN or GERAN network.
+- The Circuit Switched voice call is successfully established by the MSC Server.
+- Voice communication is maintained without interruption during the call.
+- After call release, the UE successfully returns to the LTE network.
+- EPS services are resumed after re-entering LTE coverage.
 
 ---
+
+## Failure Scenarios
+
+Common reasons for CSFB procedure failure include:
+
+- SGs association between the MME and MSC Server is not established.
+- Combined EPS/IMSI Attach was not successfully completed.
+- Extended Service Request is rejected by the MME.
+- No suitable UTRAN or GERAN neighbor cell is available.
+- Inter-RAT redirection or PS Handover fails.
+- Radio Link Failure (RLF) occurs during fallback.
+- The target legacy cell rejects the UE.
+- UE does not support Circuit Switched Fallback.
+- Circuit Switched call setup fails at the MSC Server.
+- Timer expiry during paging, mobility, or call establishment.
+
+---
+
+## Troubleshooting
+
+| Check | Description |
+|-------|-------------|
+| Combined Attach | Verify the UE completed a Combined EPS/IMSI Attach and is registered in both EPS and CS domains. |
+| SGs Association | Confirm that the SGs association between the MME and MSC Server is established. |
+| SGsAP Paging | Verify SGsAP Paging Request and Paging Response messages for Mobile Terminated calls. |
+| Extended Service Request | Check that the UE sends an Extended Service Request with the correct CSFB service type. |
+| S1AP Signaling | Verify UE Context Modification Request and Response between the MME and eNodeB. |
+| Neighbor Configuration | Confirm that LTE-to-UTRAN/GERAN neighbor relations are correctly configured. |
+| Inter-RAT Mobility | Verify successful LTE redirection or PS Handover to the target legacy network. |
+| Target Cell Accessibility | Ensure the target UTRAN or GERAN cell is available and accepts the UE. |
+| MSC Server Logs | Verify successful Circuit Switched call setup and release procedures. |
+| UE Capability | Confirm that the UE supports CSFB and the required legacy radio technologies. |
+| Performance Counters | Review CSFB Success Rate, Redirection Success Rate, Paging Success Rate, and CS Call Setup Success Rate KPIs. |
+
+---
+
+## Related Procedures
+
+- Attach
+- Authentication
+- Security Mode Control
+- Initial Context Setup
+- Service Request
+- Tracking Area Update (TAU)
+- X2 Handover
+- S1 Handover
+- SRVCC
+- Dedicated Bearer Activation
+
+---
+
+## References
+
+- 3GPP TS 23.272 – Circuit Switched (CS) Fallback in Evolved Packet System (EPS)
+- 3GPP TS 23.401 – General Packet Radio Service (GPRS) Enhancements for E-UTRAN Access
+- 3GPP TS 24.301 – Non-Access-Stratum (NAS) Protocol for EPS
+- 3GPP TS 36.413 – S1 Application Protocol (S1AP)
+- 3GPP TS 36.331 – E-UTRA Radio Resource Control (RRC)
