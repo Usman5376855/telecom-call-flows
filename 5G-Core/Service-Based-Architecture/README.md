@@ -218,13 +218,15 @@ The Producer–Consumer interaction generally follows these steps:
 This dynamic workflow allows Network Functions to communicate without predefined static connections, enabling independent deployment, scaling, and lifecycle management.
 
 ---
----
 
 ## Producer–Consumer Communication Diagram
 
 The following diagram illustrates the Producer–Consumer communication model within the Service-Based Architecture. It shows how a Network Function acting as a Service Consumer discovers a Service Producer through the Network Repository Function (NRF) and invokes the required service using the Service-Based Interface (SBI).
 
 ![Producer–Consumer Communication Model](images/producer-consumer-communication-model.png)
+
+---
+
 ## Practical Example
 
 During a Registration procedure:
@@ -250,3 +252,162 @@ The Producer–Consumer model provides several operational advantages:
 - Efficient cloud-native deployments.
 - Standardized interoperability across vendors.
 - Reduced operational complexity compared to static interface-based communication.
+
+  ---
+
+# Network Function Registration
+
+## Overview
+
+Before a Network Function (NF) can provide services within the Service-Based Architecture (SBA), it must first register with the **Network Repository Function (NRF)**. This registration process enables the NRF to maintain an up-to-date repository of available Network Functions, their capabilities, supported services, API versions, endpoint addresses, and operational status.
+
+By maintaining this centralized service registry, the NRF allows other authorized Network Functions to dynamically discover and communicate with suitable service providers without relying on static peer configurations.
+
+---
+
+## Registration Information
+
+During registration, a Network Function typically provides the following information to the NRF:
+
+| Information | Description |
+|------------|-------------|
+| **NF Instance ID** | Unique identifier of the Network Function instance. |
+| **NF Type** | Type of Network Function (AMF, SMF, PCF, UDM, etc.). |
+| **Supported Services** | List of services exposed by the Network Function. |
+| **API Version** | Supported Service-Based Interface API versions. |
+| **Endpoint Address** | URI used by other Network Functions to access the service. |
+| **NF Status** | Operational status (Registered, Suspended, or Deregistered). |
+| **Supported S-NSSAIs** | Supported Network Slice information, where applicable. |
+| **Locality Information** | Geographic or deployment locality used for service selection. |
+
+---
+
+## Registration Procedure
+
+A typical Network Function registration follows these steps:
+
+1. The Network Function starts and initializes its supported services.
+2. The Network Function sends an **NF Register** request to the NRF.
+3. The NRF validates the registration request.
+4. The NRF stores the NF Profile within its service repository.
+5. The NRF returns a successful registration response.
+6. The Network Function becomes discoverable by other authorized Network Functions.
+
+---
+
+## Benefits
+
+Network Function registration provides several operational advantages:
+
+- Dynamic service availability.
+- Automatic service discovery.
+- Simplified scaling of Network Functions.
+- Support for redundancy and high availability.
+- Improved resiliency through multiple NF instances.
+- Elimination of static peer configurations.
+- Simplified cloud-native lifecycle management.
+
+Successful registration with the NRF is a mandatory prerequisite for Network Functions participating in Service-Based Architecture communication.
+
+---
+
+# Service Discovery
+
+## Overview
+
+Service Discovery is the process by which a Network Function (NF) dynamically locates another Network Function that provides a required service. Instead of relying on predefined peer configurations, the Service Consumer queries the **Network Repository Function (NRF)** to identify a suitable Service Producer based on service type, capabilities, network slice, locality, and operational status.
+
+This dynamic discovery mechanism improves flexibility, scalability, and resiliency by allowing Network Functions to communicate without maintaining static relationships.
+
+---
+
+## Discovery Procedure
+
+A typical Service Discovery procedure consists of the following steps:
+
+1. A Service Consumer determines that it requires a specific network service.
+2. The Service Consumer sends an **NF Discovery** request to the NRF.
+3. The NRF searches its repository for matching Network Functions.
+4. The NRF returns one or more suitable NF Profiles.
+5. The Service Consumer selects an appropriate Service Producer.
+6. The Service Consumer invokes the required service through the Service-Based Interface (SBI).
+
+---
+
+## Discovery Criteria
+
+The NRF may use several criteria when selecting a suitable Network Function.
+
+| Selection Criteria | Description |
+|--------------------|-------------|
+| **NF Type** | Required Network Function (AMF, SMF, PCF, UDM, etc.). |
+| **Supported Service** | Requested service exposed by the Network Function. |
+| **NF Status** | Current operational status of the Network Function. |
+| **Network Slice** | Matching S-NSSAI, where applicable. |
+| **Locality** | Preferred geographic or deployment location. |
+| **Capacity** | Available resources and load conditions. |
+| **Priority** | Operator-defined service selection policies. |
+
+---
+
+## Benefits
+
+Dynamic Service Discovery provides several advantages:
+
+- Eliminates static peer configuration.
+- Supports automatic failover.
+- Enables load balancing across multiple NF instances.
+- Simplifies cloud-native scaling.
+- Improves service resiliency.
+- Supports flexible deployment and orchestration.
+
+Service Discovery is a key capability of the Service-Based Architecture, allowing Network Functions to locate and consume services dynamically while maintaining high availability and operational flexibility.
+
+---
+
+# Security in the Service-Based Architecture
+
+## Overview
+
+Security is a fundamental design principle of the Service-Based Architecture (SBA). Since Network Functions (NFs) communicate using HTTP/2 and RESTful APIs over IP networks, robust security mechanisms are required to ensure that only authenticated and authorized Network Functions can exchange information.
+
+The 3GPP defines multiple security mechanisms to protect Service-Based Interface (SBI) communication against unauthorized access, data tampering, and interception.
+
+---
+
+## Security Mechanisms
+
+| Security Mechanism | Purpose |
+|--------------------|---------|
+| **Transport Layer Security (TLS)** | Provides encryption, integrity protection, and mutual authentication between Network Functions. |
+| **OAuth 2.0** | Authorizes Network Functions to access specific services exposed by other Network Functions. |
+| **Mutual Authentication** | Verifies the identity of both the Service Consumer and Service Producer before communication is established. |
+| **Access Control** | Restricts service access based on predefined authorization policies. |
+| **Certificate Management** | Uses X.509 certificates to establish trusted communication between Network Functions. |
+
+---
+
+## Security Workflow
+
+A typical SBI security process consists of the following steps:
+
+1. The Service Consumer discovers the target Network Function through the NRF.
+2. A secure TLS session is established between the communicating Network Functions.
+3. The Service Consumer obtains an OAuth 2.0 access token, when required.
+4. The Service Producer validates the access token and authorizes the request.
+5. Secure service communication proceeds over the established SBI connection.
+
+---
+
+## Benefits
+
+The SBA security framework provides:
+
+- Mutual authentication between Network Functions.
+- Confidentiality of exchanged information.
+- Integrity protection against message modification.
+- Authorization based on standardized access control policies.
+- Secure communication across multi-vendor and cloud-native deployments.
+
+These security mechanisms ensure that Service-Based Interface communication remains secure, trusted, and compliant with 3GPP security requirements.
+
