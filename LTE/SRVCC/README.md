@@ -106,3 +106,76 @@ The following diagram illustrates the signaling flow for the Single Radio Voice 
 
 ![SRVCC Call Flow](images/srvcc-call-flow.png)
 
+## Success Criteria
+
+The SRVCC procedure is considered successful when:
+
+- The SRVCC handover is successfully initiated by the serving eNodeB.
+- The target UTRAN or GERAN network successfully allocates Circuit Switched resources.
+- The active IMS voice session is successfully transferred to the Circuit Switched domain.
+- The UE completes the inter-RAT handover without call interruption.
+- LTE radio and EPS bearer resources are released after successful handover.
+- The voice call continues on the target Circuit Switched network until normal call release.
+
+---
+
+## Failure Scenarios
+
+Common reasons for SRVCC procedure failure include:
+
+- Target UTRAN or GERAN cell is unavailable.
+- SRVCC is not supported by the UE or the network.
+- Handover preparation fails between the MME and MSC Server.
+- IMS session transfer to the MSC Server fails.
+- Circuit Switched resource allocation fails.
+- Inter-RAT handover fails due to poor radio conditions.
+- Radio Link Failure (RLF) occurs during handover execution.
+- Handover timers expire before procedure completion.
+- LTE coverage is lost before SRVCC can be completed.
+
+---
+
+## Troubleshooting
+
+| Check | Description |
+|-------|-------------|
+| UE Capability | Verify that the UE supports SRVCC. |
+| VoLTE Session | Confirm that the VoLTE call is successfully established before SRVCC initiation. |
+| Radio Measurements | Verify UE Measurement Reports and SRVCC trigger conditions. |
+| Neighbor Configuration | Confirm LTE-to-UTRAN/GERAN neighbor relations are correctly configured. |
+| Handover Required | Verify the eNodeB sends the S1AP Handover Required message with the SRVCC indication. |
+| MME Logs | Confirm successful SRVCC coordination between the MME and MSC Server. |
+| IMS Session Transfer | Verify successful transfer of the IMS voice session to the Circuit Switched domain. |
+| CS Resource Allocation | Ensure the target UTRAN or GERAN network successfully allocates radio resources. |
+| Handover Execution | Verify successful inter-RAT handover completion without Radio Link Failure (RLF). |
+| Bearer Release | Confirm LTE radio resources and EPS bearers are released after successful SRVCC. |
+| Performance Counters | Review SRVCC Success Rate, Inter-RAT Handover Success Rate, VoLTE Call Drop Rate, and Voice Continuity KPIs. |
+
+---
+
+## Related Procedures
+
+- Combined EPS/IMSI Attach
+- Authentication
+- Security Mode Control
+- Initial Context Setup
+- Service Request
+- Tracking Area Update (TAU)
+- Routing Area Update (RAU)
+- X2 Handover
+- S1 Handover
+- CSFB
+- Dedicated Bearer Activation
+- IMS Registration
+- VoLTE Call Setup
+
+---
+
+## References
+
+- 3GPP TS 23.216 – Single Radio Voice Call Continuity (SRVCC)
+- 3GPP TS 23.237 – IMS Session Transfer
+- 3GPP TS 23.401 – General Packet Radio Service (GPRS) Enhancements for E-UTRAN Access
+- 3GPP TS 24.237 – IMS Session Transfer Procedures
+- 3GPP TS 36.413 – S1 Application Protocol (S1AP)
+- 3GPP TS 36.331 – E-UTRA Radio Resource Control (RRC)
