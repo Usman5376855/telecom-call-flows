@@ -163,3 +163,90 @@ The adoption of the Service-Based Interface provides several architectural and o
 - Support for automation and lifecycle management.
 
 The Service-Based Interface is a fundamental enabler of the cloud-native 5G Core, providing the communication framework that allows Network Functions to operate as modular, reusable, and independently scalable services.
+
+---
+
+# Producer–Consumer Communication Model
+
+## Overview
+
+The Service-Based Architecture (SBA) follows a **Producer–Consumer communication model**, where Network Functions (NFs) expose standardized services that can be dynamically consumed by other authorized Network Functions.
+
+Unlike traditional interface-based communication, where signaling paths are statically defined, the SBA allows Network Functions to operate independently while interacting through standardized service APIs. This loose coupling improves scalability, resiliency, flexibility, and simplifies the introduction of new network capabilities.
+
+In the SBA, a Network Function may simultaneously operate as both a **Service Producer** and a **Service Consumer**, depending on the procedure being executed.
+
+---
+
+## Service Producer
+
+A **Service Producer** is a Network Function that exposes one or more standardized services through the Service-Based Interface (SBI).
+
+Examples include:
+
+- AMF providing mobility management services.
+- SMF providing PDU Session management services.
+- UDM providing subscriber data services.
+- PCF providing policy control services.
+- AUSF providing authentication services.
+
+Before providing services, the Network Function registers its supported services and capabilities with the Network Repository Function (NRF).
+
+---
+
+## Service Consumer
+
+A **Service Consumer** is a Network Function that discovers and invokes services offered by another authorized Network Function.
+
+Rather than maintaining static peer relationships, the Service Consumer queries the NRF to locate a suitable Service Producer based on service type, supported capabilities, network slice, locality, or deployment policies.
+
+This dynamic discovery mechanism enables flexible service selection and improves network resiliency.
+
+---
+
+## Communication Workflow
+
+The Producer–Consumer interaction generally follows these steps:
+
+1. A Network Function registers its service profile with the NRF.
+2. The NRF stores the Network Function profile and advertised services.
+3. A Service Consumer queries the NRF to discover an appropriate Service Producer.
+4. The NRF returns the endpoint information of the selected Network Function.
+5. The Service Consumer invokes the required service over the Service-Based Interface using HTTP/2 and RESTful APIs.
+6. The Service Producer processes the request and returns the appropriate response.
+
+This dynamic workflow allows Network Functions to communicate without predefined static connections, enabling independent deployment, scaling, and lifecycle management.
+
+---
+---
+
+## Producer–Consumer Communication Diagram
+
+The following diagram illustrates the Producer–Consumer communication model within the Service-Based Architecture. It shows how a Network Function acting as a Service Consumer discovers a Service Producer through the Network Repository Function (NRF) and invokes the required service using the Service-Based Interface (SBI).
+
+![Producer–Consumer Communication Model](images/producer-consumer-communication-model.png)
+## Practical Example
+
+During a Registration procedure:
+
+- The AMF operates as a **Service Consumer** when requesting subscriber information from the UDM.
+- The UDM operates as a **Service Producer** by providing subscription data.
+- During authentication, the AUSF becomes the Service Producer.
+- During PDU Session Establishment, the SMF acts as the Service Producer for session management services.
+
+Depending on the procedure, a single Network Function may switch between producer and consumer roles.
+
+---
+
+## Key Benefits
+
+The Producer–Consumer model provides several operational advantages:
+
+- Loose coupling between Network Functions.
+- Dynamic service discovery.
+- Independent Network Function scaling.
+- Simplified software upgrades.
+- Improved resiliency through redundant service instances.
+- Efficient cloud-native deployments.
+- Standardized interoperability across vendors.
+- Reduced operational complexity compared to static interface-based communication.
