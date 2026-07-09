@@ -78,3 +78,22 @@ Depending on the network configuration, the UE may:
 - Reselect an LTE cell.
 - Perform a Tracking Area Update (TAU), if required.
 - Resume EPS packet data services.
+
+## Call Flow Diagram
+
+The following diagram illustrates the signaling flow for the Circuit Switched Fallback (CSFB) procedure.
+
+![LTE CSFB Call Flow](images/csfb-call-flow.png)
+
+---
+
+## Success Criteria
+
+The CSFB procedure is considered successful when:
+
+- The UE is redirected or handed over to the target GERAN/UTRAN network.
+- The Circuit Switched voice call is successfully established.
+- The voice call remains stable throughout its duration.
+- After call release, the UE successfully returns to LTE and resumes EPS services.
+
+---
