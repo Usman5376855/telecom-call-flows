@@ -137,7 +137,7 @@ Common reasons for CSFB procedure failure include:
 
 ## Related Procedures
 
-- Attach
+- Combined EPS/IMSI Attach
 - Authentication
 - Security Mode Control
 - Initial Context Setup
@@ -147,7 +147,6 @@ Common reasons for CSFB procedure failure include:
 - S1 Handover
 - SRVCC
 - Dedicated Bearer Activation
-
 ---
 
 ## References
