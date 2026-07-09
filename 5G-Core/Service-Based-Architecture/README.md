@@ -76,6 +76,12 @@ The principal components of the Service-Based Architecture are described below.
 Together, these components form the foundation of the Service-Based Architecture, enabling the 5G Core to operate as a cloud-native, service-oriented platform capable of supporting highly scalable, resilient, and programmable mobile networks.
 
 ---
+# Architecture Diagram
+
+The following diagram illustrates the overall Service-Based Architecture (SBA) of the 5G Core. It shows the major Network Functions (NFs), the Service-Based Interface (SBI), and the communication model used between Network Functions.
+
+![5G Core Service-Based Architecture](images/service-based-architecture-overview.png)
+
 
 # Service-Based Interface (SBI)
 
