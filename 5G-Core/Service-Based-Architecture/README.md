@@ -80,7 +80,7 @@ Together, these components form the foundation of the Service-Based Architecture
 
 The following diagram illustrates the overall Service-Based Architecture (SBA) of the 5G Core. It shows the major Network Functions (NFs), the Service-Based Interface (SBI), and the communication model used between Network Functions.
 
-![5G Core Service-Based Architecture](images/service-based-architecture-overview.png)
+![5G Core Service-Based Architecture](images/service-based-architecture-overview.jpg)
 
 
 # Service-Based Interface (SBI)
@@ -101,7 +101,7 @@ The Service-Based Interface enables dynamic service discovery, independent Netwo
 
 The following diagram illustrates the typical Service-Based Interface (SBI) communication workflow. It demonstrates how Network Functions register with the Network Repository Function (NRF), discover available services, and invoke standardized services over HTTP/2 using RESTful APIs.
 
-![SBI Communication Flow](images/sbi-communication-flow.png)
+![SBI Communication Flow](images/sbi-communication-flow.jpg)
 
 ---
 
