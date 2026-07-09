@@ -97,6 +97,14 @@ The Service-Based Interface enables dynamic service discovery, independent Netwo
 
 ---
 
+# SBI Communication Flow
+
+The following diagram illustrates the typical Service-Based Interface (SBI) communication workflow. It demonstrates how Network Functions register with the Network Repository Function (NRF), discover available services, and invoke standardized services over HTTP/2 using RESTful APIs.
+
+![SBI Communication Flow](images/sbi-communication-flow.png)
+
+---
+
 ## Communication Technologies
 
 The Service-Based Interface utilizes widely adopted Internet technologies to provide secure, reliable, and standardized communication between Network Functions.
