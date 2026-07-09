@@ -104,7 +104,7 @@ The UE remains connected to the legacy network until the voice call ends or norm
 
 The following diagram illustrates the signaling flow for the Single Radio Voice Call Continuity (SRVCC) procedure. It shows how an ongoing VoLTE call is transferred from the LTE packet-switched domain to the legacy Circuit Switched network while maintaining voice continuity.
 
-![SRVCC](images/srvcc-call-flow.png)
+![SRVCC Call Flow](Images/srvcc-call-flow.png)
 
 ## Success Criteria
 
