@@ -147,7 +147,42 @@ This documentation focuses on **3GPP Release 15 and later**, covering standardiz
 Where applicable, explanations are supported by sequence diagrams, signaling message flows, operational considerations, troubleshooting guidance, and references to the corresponding 3GPP specifications.
 
 ---
+---
 
+# Documentation Structure
+
+The 5G Core documentation is organized into the following sections:
+
+## Architecture
+
+- Service-Based Architecture (SBA)
+- Network Functions
+- Service-Based Interfaces
+- Reference Points
+- Network Slicing
+- QoS Architecture
+
+## Procedures
+
+- Registration
+- Authentication
+- Security Mode Control
+- Service Request
+- Paging
+- Deregistration
+- PDU Session Establishment
+- PDU Session Modification
+- PDU Session Release
+- Xn Handover
+- N2 Handover
+- UE Context Release
+
+## Operational Guides
+
+- Troubleshooting
+- Best Practices
+- KPI Analysis
+- Common Failure Scenarios
 # References
 
 The following 3GPP Technical Specifications form the primary references for this documentation:
