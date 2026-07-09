@@ -99,3 +99,12 @@ The UE responds with a **Routing Area Update Complete** message.
 
 The procedure is completed, and the UE continues normal Packet Switched services under the new Routing Area.
 
+## Call Flow Diagram
+
+The following diagrams illustrate the signaling flow for both **Inter-SGSN Routing Area Update (RAU)** and **Intra-SGSN Routing Area Update (RAU)** procedures.
+
+- **Inter-SGSN RAU** shows the procedure when the UE moves to a different SGSN, including UE context transfer, subscriber location update, and PDP context update.
+- **Intra-SGSN RAU** shows the procedure when the UE remains under the same SGSN, where context transfer is not required.
+
+![Inter-SGSN and Intra-SGSN RAU Call Flow](images/Inter-Intra-SGSN-RAU-call-flow.png)
+
