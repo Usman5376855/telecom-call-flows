@@ -512,3 +512,236 @@ The next step is sending the final NAS message:
 
 **PDU Session Establishment Accept**
 
+---
+
+## 9. UE Receives PDU Session Establishment Accept
+
+After successful establishment of radio resources and user-plane connectivity, the SMF completes the PDU Session establishment procedure by sending the response towards the UE.
+
+The signaling path is:
+
+```
+SMF
+ |
+N11
+ |
+AMF
+ |
+N2/N1
+ |
+gNB
+ |
+UE
+```
+
+The SMF provides the PDU Session information to the AMF.
+
+The AMF sends the NAS message:
+
+```
+PDU Session Establishment Accept
+```
+
+towards the UE.
+
+---
+
+## Information Included in PDU Session Establishment Accept
+
+The NAS message contains:
+
+* PDU Session ID
+* Assigned IP address
+* PDU Address Information
+* Selected S-NSSAI
+* DNN
+* QoS Rules
+* QoS Flow Descriptions
+* Session AMBR
+* SSC Mode
+* Authorized QoS parameters
+
+The UE stores the received session information and activates the PDU Session.
+
+---
+
+## 10. User Plane Traffic Activation
+
+After receiving the PDU Session Establishment Accept message, the UE can start user-plane data transmission.
+
+The complete user-plane path is:
+
+```
+UE
+ |
+5G Radio
+ |
+gNB
+ |
+N3 (GTP-U)
+ |
+UPF
+ |
+N6
+ |
+Data Network
+```
+
+The UPF forwards packets according to the rules received from the SMF:
+
+* PDR (Packet Detection Rules)
+* FAR (Forwarding Action Rules)
+* QER (QoS Enforcement Rules)
+* URR (Usage Reporting Rules)
+
+---
+
+# Successful PDU Session Establishment Result
+
+After successful completion:
+
+## Control Plane Connectivity
+
+```
+UE
+ |
+N1 NAS
+ |
+AMF
+ |
+N11
+ |
+SMF
+ |
+N4 PFCP
+ |
+UPF
+```
+
+The control plane maintains session management and policy control.
+
+---
+
+## User Plane Connectivity
+
+```
+UE
+ |
+gNB
+ |
+N3 GTP-U
+ |
+UPF
+ |
+N6
+ |
+Data Network
+```
+
+The user plane provides actual packet forwarding.
+
+---
+
+# PDU Session Establishment Summary
+
+The complete procedure can be summarized as:
+
+1. UE requests a new PDU Session.
+2. AMF receives the NAS request and selects the SMF.
+3. SMF creates the PDU Session context.
+4. SMF retrieves subscriber information from UDM.
+5. SMF obtains QoS and charging policies from PCF.
+6. SMF selects the appropriate UPF.
+7. SMF establishes PFCP session with UPF.
+8. gNB establishes QoS Flow and DRB resources.
+9. UE receives PDU Session Establishment Accept.
+10. User-plane traffic becomes active.
+
+---
+
+# Key Protocols Used
+
+| Protocol   | Purpose                                     |
+| ---------- | ------------------------------------------- |
+| NAS        | UE and AMF session signaling                |
+| NGAP       | gNB and AMF signaling                       |
+| HTTP/2 SBI | Communication between 5GC Network Functions |
+| PFCP       | SMF and UPF session control                 |
+| GTP-U      | User-plane packet forwarding                |
+
+---
+
+# Key Interfaces Used
+
+| Interface | Between   | Purpose                   |
+| --------- | --------- | ------------------------- |
+| N1        | UE - AMF  | NAS signaling             |
+| N2        | gNB - AMF | Access network signaling  |
+| N3        | gNB - UPF | User-plane tunnel         |
+| N4        | SMF - UPF | PFCP session management   |
+| N6        | UPF - DN  | Data network connectivity |
+| N7        | SMF - PCF | Policy control            |
+| N10       | SMF - UDM | Subscriber data retrieval |
+| N11       | AMF - SMF | Session management        |
+
+---
+
+# Troubleshooting Areas
+
+Common PDU Session Establishment failures include:
+
+## PDU Session Reject
+
+Possible causes:
+
+* Unknown DNN
+* Unauthorized S-NSSAI
+* Subscription limitation
+* No available UPF
+* SMF failure
+
+---
+
+## PFCP Session Establishment Failure
+
+Possible causes:
+
+* N4 connectivity issue
+* UPF overload
+* Incorrect PFCP configuration
+* TEID allocation failure
+* PDR/FAR/QER installation failure
+
+---
+
+## User Plane Connectivity Failure
+
+Possible causes:
+
+* N3 GTP-U tunnel issue
+* Routing problem towards DN
+* UPF forwarding issue
+* Firewall blocking traffic
+* Incorrect QoS Flow mapping
+
+---
+
+# Related Procedures
+
+* 5G Registration Procedure
+* PDU Session Modification Procedure
+* PDU Session Release Procedure
+* Service Request Procedure
+* UE Mobility Registration Update
+* Network Slice Selection Procedure
+
+---
+
+# References
+
+* 3GPP TS 23.501 - System Architecture for the 5G System
+* 3GPP TS 23.502 - Procedures for the 5G System
+* 3GPP TS 29.244 - Interface between SMF and UPF (PFCP)
+* 3GPP TS 38.413 - NG Application Protocol (NGAP)
+
+
