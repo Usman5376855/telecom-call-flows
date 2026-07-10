@@ -670,6 +670,39 @@ The following table lists common Service-Based Architecture (SBA) issues and the
 | High SBI latency | Network performance issues | Analyze latency, resource utilization, and traffic load. |
 | Frequent retry attempts | Persistent NF or network failure | Investigate logs, alarms, and infrastructure health. |
 
+---
+
+# Related Procedures
+
+The following 5G Core procedures rely on the Service-Based Architecture (SBA) and make extensive use of Service-Based Interfaces (SBI):
+
+- UE Registration
+- Authentication and Security
+- PDU Session Establishment
+- UE Configuration Update
+- UE Deregistration
+- Network Slice Selection
+- Policy Control
+- Session Management
+- NF Registration
+- Service Discovery
+
+  ---
+
+# References
+
+1. 3GPP TS 23.501 – System Architecture for the 5G System (5GS)
+2. 3GPP TS 23.502 – Procedures for the 5G System (5GS)
+3. 3GPP TS 29.500 – 5G System; Technical Realization of Service-Based Architecture
+4. 3GPP TS 29.501 – Principles and Guidelines for the Service-Based Architecture
+5. 3GPP TS 33.501 – Security Architecture and Procedures for 5G System
+6. ETSI NFV Documentation
+7. CNCF Kubernetes Documentation
+8. IETF RFC 7540 – Hypertext Transfer Protocol Version 2 (HTTP/2)
+9. OAuth 2.0 Authorization Framework (RFC 6749)
+10. Huawei 5G Core Network Product Documentation
+
+
 
 
 
