@@ -613,6 +613,48 @@ The following diagram illustrates how a Service Consumer detects failures, retri
 
 ![Error Handling and Retry Mechanism](images/error-handling-retry-mechanism.png)
 
+---
+
+# Operational Best Practices
+
+## Overview
+
+A reliable Service-Based Architecture (SBA) requires continuous monitoring, automation, secure communication, and proper lifecycle management. Following operational best practices improves network stability, scalability, and service availability.
+
+---
+
+## Best Practices
+
+- Deploy redundant instances of critical Network Functions (NFs).
+- Continuously monitor NF health and Service-Based Interface (SBI) traffic.
+- Secure all SBI communication using TLS and OAuth 2.0.
+- Configure appropriate timeout and retry parameters.
+- Use NRF for dynamic service discovery instead of static peer configurations.
+- Enable centralized logging, metrics, and alerting.
+- Automate NF deployment and scaling using cloud-native orchestration.
+- Regularly update software and security certificates.
+
+---
+
+## Operational Benefits
+
+- Improved service availability
+- Faster fault detection and recovery
+- Better resource utilization
+- Simplified operations and maintenance
+- Enhanced network security
+- Increased scalability and reliability
+
+  ---
+
+## Operational Best Practices Architecture
+
+The following diagram illustrates how monitoring, automation, security, orchestration, and observability work together to ensure a reliable, scalable, and cloud-native 5G Core Service-Based Architecture (SBA).
+
+![Operational Best Practices](images/sba-operational-best-practices.png)
+
+
+
 
 
 
