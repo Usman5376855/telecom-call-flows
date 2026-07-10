@@ -90,4 +90,34 @@ The following diagram illustrates the end-to-end 5G Registration Procedure, show
 
 ![5G Registration Call Flow](images/registration-call-flow.png)
 
+---
+
+# Security During Registration
+
+## Overview
+
+Security is an essential part of the 5G Registration Procedure. Before a UE can access network services, the network authenticates the subscriber, establishes a secure NAS connection, and protects all subsequent signaling exchanges.
+
+---
+
+## Security Features
+
+- Mutual authentication using the 5G AKA procedure.
+- Authentication performed by the AUSF with subscriber credentials stored in the UDM.
+- NAS integrity and ciphering activated through the Security Mode procedure.
+- Security context established and maintained by the AMF.
+- Service-Based Interface (SBI) communication secured using TLS and OAuth 2.0.
+
+---
+
+## Benefits
+
+- Verifies subscriber identity.
+- Prevents unauthorized network access.
+- Protects NAS signaling from tampering and interception.
+- Establishes a trusted security context for subsequent 5G procedures.
+- Provides a secure foundation for PDU Session Establishment and other services.
+
+  
+
 
