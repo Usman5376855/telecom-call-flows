@@ -486,3 +486,57 @@ Similarly, during PDU Session Establishment, the AMF invokes services provided b
 - Network Functions interact dynamically without static peer configurations.
 - The Producer–Consumer model enables scalable, cloud-native communication across the 5G Core.
 
+  ---
+
+# High Availability and Load Balancing
+
+## Overview
+
+High Availability (HA) and Load Balancing are essential features of the Service-Based Architecture (SBA). Since multiple instances of the same Network Function (NF) can be deployed, the 5G Core can continue providing services even if an individual NF instance becomes unavailable.
+
+The Network Repository Function (NRF) maintains information about all registered NF instances, allowing Service Consumers to dynamically select an available Service Producer based on operational status, capacity, locality, and operator-defined policies.
+
+---
+
+## High Availability
+
+High Availability ensures uninterrupted service by deploying multiple instances of the same Network Function.
+
+If one NF instance fails, another registered instance can immediately continue providing the required service without relying on static peer configurations.
+
+Typical examples include:
+
+- Multiple AMF instances
+- Multiple SMF instances
+- Multiple UDM instances
+- Multiple PCF instances
+
+---
+
+## Load Balancing
+
+Load Balancing distributes service requests across multiple available NF instances.
+
+The NRF returns one or more suitable NF profiles, allowing the Service Consumer to select an instance based on:
+
+- Current load
+- Capacity
+- Locality
+- Priority
+- Supported Network Slice (S-NSSAI)
+
+This improves resource utilization, scalability, and overall network performance.
+
+---
+
+## Benefits
+
+- Improved service availability
+- Automatic failover
+- Better scalability
+- Efficient resource utilization
+- Reduced service interruption
+- Cloud-native resiliency
+
+  
+
