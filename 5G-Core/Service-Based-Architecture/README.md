@@ -653,6 +653,22 @@ The following diagram illustrates how monitoring, automation, security, orchestr
 
 ![Operational Best Practices](images/sba-operational-best-practices.png)
 
+---
+
+# Troubleshooting
+
+The following table lists common Service-Based Architecture (SBA) issues and their possible causes.
+
+| Issue | Possible Cause | Recommended Action |
+|-------|----------------|--------------------|
+| NF registration fails | NRF unreachable or incorrect configuration | Verify NRF connectivity, certificates, and NF configuration. |
+| Service discovery fails | Requested NF not registered | Confirm the target NF is successfully registered with the NRF. |
+| Service invocation timeout | Network congestion or unavailable NF | Check SBI connectivity and verify NF health status. |
+| HTTP 401 / 403 errors | Authentication or authorization failure | Validate OAuth 2.0 tokens and TLS certificates. |
+| HTTP 503 Service Unavailable | Target NF overloaded or unavailable | Retry the request or select another NF instance via the NRF. |
+| TLS handshake failure | Certificate mismatch or expired certificate | Verify certificate validity and trust configuration. |
+| High SBI latency | Network performance issues | Analyze latency, resource utilization, and traffic load. |
+| Frequent retry attempts | Persistent NF or network failure | Investigate logs, alarms, and infrastructure health. |
 
 
 
