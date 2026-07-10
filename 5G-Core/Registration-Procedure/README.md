@@ -118,6 +118,16 @@ Security is an essential part of the 5G Registration Procedure. Before a UE can 
 - Establishes a trusted security context for subsequent 5G procedures.
 - Provides a secure foundation for PDU Session Establishment and other services.
 
+- ---
+
+## Registration Security Flow
+
+The following diagram illustrates the authentication, security context establishment, and NAS security activation during the 5G Registration Procedure.
+
+![Registration Security Flow](images/registration-security-flow.png)
+
+
+
   
 
 
