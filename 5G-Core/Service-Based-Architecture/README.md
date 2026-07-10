@@ -463,3 +463,26 @@ The following diagram illustrates how a Service Consumer invokes a service provi
 
 ![Service Invocation Flow](images/service-invocation-flow.png)
 
+---
+
+## Practical Example
+
+A common example of service invocation occurs during the **Registration Procedure**:
+
+- The AMF discovers the UDM through the NRF.
+- The AMF invokes the Nudm service using the Service-Based Interface (SBI).
+- The UDM processes the request and returns the subscriber data.
+- The AMF continues the registration procedure using the received information.
+
+Similarly, during PDU Session Establishment, the AMF invokes services provided by the SMF, while the SMF communicates with the PCF and UDM to complete the requested operation.
+
+---
+
+## Key Takeaways
+
+- Service invocation occurs after successful registration and service discovery.
+- Communication is performed over HTTP/2 using RESTful APIs.
+- TLS and OAuth 2.0 protect SBI communication.
+- Network Functions interact dynamically without static peer configurations.
+- The Producer–Consumer model enables scalable, cloud-native communication across the 5G Core.
+
