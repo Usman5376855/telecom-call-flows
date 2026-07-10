@@ -605,6 +605,16 @@ If all retry attempts fail, the procedure is terminated and an appropriate error
 - Reduces service interruption.
 - Enhances overall network resilience.
 
+- ---
+
+## Error Handling and Retry Flow
+
+The following diagram illustrates how a Service Consumer detects failures, retries service requests, rediscovers alternative Network Function (NF) instances through the NRF, and maintains service continuity within the Service-Based Architecture (SBA).
+
+![Error Handling and Retry Mechanism](images/error-handling-retry-mechanism.png)
+
+
+
 
   
 
