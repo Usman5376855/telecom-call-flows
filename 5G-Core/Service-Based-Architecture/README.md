@@ -538,5 +538,14 @@ This improves resource utilization, scalability, and overall network performance
 - Reduced service interruption
 - Cloud-native resiliency
 
+---
+
+## High Availability and Load Balancing Flow
+
+The following diagram illustrates how the NRF enables high availability and load balancing by selecting healthy Network Function (NF) instances and redirecting traffic to an alternative instance in case of failure.
+
+![High Availability and Load Balancing](images/high-availability-load-balancing.png)
+
+
   
 
