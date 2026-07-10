@@ -411,3 +411,55 @@ The SBA security framework provides:
 
 These security mechanisms ensure that Service-Based Interface communication remains secure, trusted, and compliant with 3GPP security requirements.
 
+---
+
+# Service Invocation
+
+## Overview
+
+After successful registration, service discovery, and security establishment, Network Functions (NFs) can invoke services exposed by other authorized Network Functions through the Service-Based Interface (SBI).
+
+Service invocation follows the Producer–Consumer model, where the Service Consumer sends an HTTP/2 request to the Service Producer using RESTful APIs. The Service Producer processes the request and returns the appropriate response. This mechanism enables dynamic, standardized, and interoperable communication between Network Functions within the 5G Core.
+
+---
+
+## Service Invocation Procedure
+
+A typical service invocation consists of the following steps:
+
+1. The Service Consumer discovers the target Network Function through the NRF.
+2. A secure TLS connection is established.
+3. The Service Consumer sends an HTTP/2 request to the Service Producer.
+4. The Service Producer validates and processes the request.
+5. The requested service is executed.
+6. The Service Producer returns an HTTP/2 response to the Service Consumer.
+
+---
+
+## HTTP Methods Used
+
+| HTTP Method | Purpose |
+|-------------|---------|
+| **GET** | Retrieve information from a Network Function. |
+| **POST** | Create a new resource or initiate a procedure. |
+| **PUT** | Update an existing resource. |
+| **DELETE** | Remove an existing resource. |
+
+---
+
+## Benefits
+
+- Standardized communication between Network Functions.
+- Dynamic service invocation.
+- Reduced dependency on static interfaces.
+- Faster service integration.
+- Improved scalability and interoperability.
+
+- ---
+
+## Service Invocation Flow
+
+The following diagram illustrates how a Service Consumer invokes a service provided by another Network Function using the Service-Based Interface (SBI).
+
+![Service Invocation Flow](images/service-invocation-flow.png)
+
