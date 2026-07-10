@@ -126,6 +126,54 @@ The following diagram illustrates the authentication, security context establish
 
 ![Registration Security Flow](images/registration-security-flow.png)
 
+---
+
+# Troubleshooting
+
+The following table lists common issues encountered during the 5G Registration Procedure and their possible causes.
+
+| Issue | Possible Cause | Recommended Action |
+|-------|----------------|--------------------|
+| Registration Request rejected | Invalid UE identity or subscription | Verify the SUPI/SUCI and subscriber provisioning in the UDM. |
+| Authentication failure | Incorrect authentication vectors or subscriber credentials | Check AUSF and UDM synchronization and verify authentication data. |
+| Registration timeout | AMF or gNB communication issue | Verify NGAP connectivity, SCTP status, and AMF availability. |
+| Security Mode failure | NAS security mismatch | Confirm selected integrity and ciphering algorithms are supported by both UE and AMF. |
+| Subscriber data retrieval failure | UDM unavailable or SBI communication issue | Verify UDM registration with the NRF and check HTTP/2/TLS connectivity. |
+| Policy association failure | PCF unavailable | Check PCF health and SBI communication between the AMF and PCF. |
+| HTTP 401 / 403 responses | Authentication or authorization failure | Verify OAuth 2.0 tokens and TLS certificates. |
+| Registration repeatedly fails | Network configuration or roaming issue | Review AMF logs, UE logs, subscriber configuration, and SBI message traces. |
+
+---
+
+# Related Procedures
+
+The following procedures are closely related to the 5G Registration Procedure:
+
+- Service-Based Architecture (SBA)
+- Authentication and Security
+- PDU Session Establishment
+- UE Deregistration
+- UE Configuration Update
+- Mobility Registration Update
+- Network Slice Selection
+- Policy Control
+- Session Management
+
+  ---
+
+# References
+
+1. 3GPP TS 23.501 – System Architecture for the 5G System (5GS)
+2. 3GPP TS 23.502 – Procedures for the 5G System (5GS)
+3. 3GPP TS 24.501 – Non-Access-Stratum (NAS) Protocol for the 5G System
+4. 3GPP TS 29.500 – Technical Realization of the Service-Based Architecture
+5. 3GPP TS 29.501 – Principles and Guidelines for the Service-Based Architecture
+6. 3GPP TS 33.501 – Security Architecture and Procedures for the 5G System
+7. ETSI NFV Documentation
+8. Huawei 5G Core Product Documentation
+
+
+
 
 
   
