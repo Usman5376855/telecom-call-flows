@@ -546,6 +546,65 @@ The following diagram illustrates how the NRF enables high availability and load
 
 ![High Availability and Load Balancing](images/high-availability-load-balancing.png)
 
+---
+
+# Error Handling and Retry Mechanisms
+
+## Overview
+
+In a Service-Based Architecture (SBA), temporary failures such as Network Function (NF) unavailability, network congestion, or communication timeouts may occur. To maintain service continuity, Service Consumers implement error handling and retry mechanisms before declaring a service failure.
+
+---
+
+## Common Error Scenarios
+
+Typical service invocation failures include:
+
+- Target Network Function is unavailable.
+- HTTP/2 request timeout.
+- TLS connection failure.
+- Authorization or authentication failure.
+- Requested service is temporarily overloaded.
+- Network connectivity interruption.
+
+---
+
+## Retry Mechanism
+
+When a service request fails, the Service Consumer performs the following actions:
+
+1. Detect the failure.
+2. Check whether the error is recoverable.
+3. Rediscover an available NF through the NRF if required.
+4. Retry the service request.
+5. Continue normal processing after receiving a successful response.
+
+If all retry attempts fail, the procedure is terminated and an appropriate error response is returned to the requesting Network Function.
+
+---
+
+## Common HTTP Status Codes
+
+| Status Code | Description |
+|-------------|-------------|
+| **200 OK** | Request completed successfully. |
+| **400 Bad Request** | Invalid request parameters. |
+| **401 Unauthorized** | Authentication failed. |
+| **403 Forbidden** | Service access is not permitted. |
+| **404 Not Found** | Requested service or resource does not exist. |
+| **429 Too Many Requests** | Rate limiting or overload condition. |
+| **500 Internal Server Error** | Internal Network Function error. |
+| **503 Service Unavailable** | Service temporarily unavailable. |
+
+---
+
+## Benefits
+
+- Improves service reliability.
+- Supports automatic recovery from temporary failures.
+- Reduces service interruption.
+- Enhances overall network resilience.
+
 
   
 
