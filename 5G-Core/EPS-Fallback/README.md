@@ -122,24 +122,33 @@ EPS Fallback is defined by the 3GPP specifications listed below.
 
 ---
 
-## Contents
 
-This document covers the complete EPS Fallback procedure, including:
+  ## EPS Fallback Call Flow
 
-- Network Architecture
-- Network Functions
-- Prerequisites
-- N26 and Non-N26 Architectures
-- Complete Signalling Flow
-- NAS Procedures
-- NGAP Procedures
-- LTE Mobility
-- IMS Voice Call Setup
-- User Plane Handling
-- Bearer Management
-- Security Procedures
-- Timers
-- Failure Scenarios
-- Troubleshooting
-- Wireshark Analysis
-- Best Practices
+```text
+ UE             gNB             AMF             MME             eNB          IMS
+ |               |               |               |               |            |
+ |----Voice Call Request-------->|               |               |            |
+ |               |               |               |               |            |
+ |               |--Initial UE Msg-------------> |               |            |
+ |               |               |               |               |            |
+ |               |<--DL NAS Transport----------- |               |            |
+ |<--RRC Reconfiguration-----------|             |               |            |
+ |               |               |               |               |            |
+ |========== NR → LTE Mobility =================>|               |            |
+ |               |               |--N26 Context->|               |            |
+ |               |               |               |               |            |
+ |               |               |<--Ack---------|               |            |
+ |               |               |               |               |            |
+ |================ Attach to LTE ================================>|            |
+ |               |               |               |               |            |
+ |               |               |               |----IMS Registration------->|
+ |               |               |               |<------200 OK---------------|
+ |               |               |               |               |            |
+ |               |               |               |====== VoLTE Call ==========>|
+ |               |               |               |               |            |
+ |<================ RTP Voice Session ===========================>|            |
+ |               |               |               |               |            |
+```
+
+
