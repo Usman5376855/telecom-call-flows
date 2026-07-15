@@ -123,32 +123,13 @@ EPS Fallback is defined by the 3GPP specifications listed below.
 ---
 
 
-  ## EPS Fallback Call Flow
+## EPS Fallback Call Flow
 
-```text
- UE             gNB             AMF             MME             eNB          IMS
- |               |               |               |               |            |
- |----Voice Call Request-------->|               |               |            |
- |               |               |               |               |            |
- |               |--Initial UE Msg-------------> |               |            |
- |               |               |               |               |            |
- |               |<--DL NAS Transport----------- |               |            |
- |<--RRC Reconfiguration-----------|             |               |            |
- |               |               |               |               |            |
- |========== NR → LTE Mobility =================>|               |            |
- |               |               |--N26 Context->|               |            |
- |               |               |               |               |            |
- |               |               |<--Ack---------|               |            |
- |               |               |               |               |            |
- |================ Attach to LTE ================================>|            |
- |               |               |               |               |            |
- |               |               |               |----IMS Registration------->|
- |               |               |               |<------200 OK---------------|
- |               |               |               |               |            |
- |               |               |               |====== VoLTE Call ==========>|
- |               |               |               |               |            |
- |<================ RTP Voice Session ===========================>|            |
- |               |               |               |               |            |
-```
+The following figure illustrates the complete 3GPP-compliant EPS Fallback signalling procedure, showing the interaction between the UE, NG-RAN, 5G Core, EPC, and IMS during the transition from 5G NR to LTE for voice service establishment.
 
+<p align="center">
+  <img src="images/eps-fallback-call-flow.png" alt="5G EPS Fallback Call Flow" width="100%">
+</p>
+
+The call flow begins when the UE initiates or receives a voice call while connected to the 5G Standalone network. The AMF determines that voice service must be provided through LTE and triggers the EPS Fallback procedure. The UE is handed over or redirected to LTE, where it attaches to the EPC, registers with IMS if required, and establishes the VoLTE session. After the voice call is completed, the UE may return to the 5G NR network according to the operator's mobility policy.
 
