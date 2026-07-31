@@ -24,37 +24,15 @@ All operator-specific information has been removed to protect customer confident
 ---
 
 ## Network Architecture
+<p align="center">
+  <img src="../../Images/Case-Studies/case001-pgw-fqdn-resolution-mismatch.png"
+       alt="S11 Create Bearer Failure due to PGW FQDN Resolution Mismatch"
+       width="1000">
+</p>
 
-```
-              +---------+
-              |   UE    |
-              +----+----+
-                   |
-                eNodeB
-                   |
-                 S1-MME
-                   |
-              +----+----+
-              |   MME   |
-              +----+----+
-                   |
-                  S11
-                   |
-              +----+----+
-              |   SGW   |
-              +----+----+
-                   |
-                 S5/S8
-                   |
-              +----+----+
-              |   PGW   |
-              +---------+
-
-                   |
-                  DNS
-```
-
----
+<p align="center">
+<b>Figure 1.</b> LTE EPC Network Architecture, Dedicated Bearer Failure caused by incorrect PGW FQDN resolution, and successful service restoration after DNS correction.
+</p>
 
 ## Problem Description
 
