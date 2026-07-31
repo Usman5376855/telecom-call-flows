@@ -25,15 +25,12 @@ All operator-specific information has been removed to protect customer confident
 
 ## Network Architecture
 <p align="center">
-  <img src="../../Images/Case-Studies/case001-pgw-fqdn-resolution-mismatch.png"
-       alt="S11 Create Bearer Failure due to PGW FQDN Resolution Mismatch"
-       width="1000">
+  <img src="./images/case001-pgw-fqdn-resolution-mismatch.png" alt="Case Study 001 Diagram" width="1000"/>
 </p>
 
 <p align="center">
 <b>Figure 1.</b> LTE EPC Network Architecture, Dedicated Bearer Failure caused by incorrect PGW FQDN resolution, and successful service restoration after DNS correction.
 </p>
-
 ## Problem Description
 
 Some LTE subscribers were unable to establish dedicated bearers after successful network attachment.
