@@ -31,6 +31,7 @@ All operator-specific information has been removed to protect customer confident
 <p align="center">
 <b>Figure 1.</b> LTE EPC Network Architecture, Dedicated Bearer Failure caused by incorrect PGW FQDN resolution, and successful service restoration after DNS correction.
 </p>
+
 ## Problem Description
 
 Some LTE subscribers were unable to establish dedicated bearers after successful network attachment.
