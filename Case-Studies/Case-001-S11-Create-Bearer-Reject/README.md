@@ -73,6 +73,19 @@ Protocol traces confirmed:
 
 ---
 
+## Evidence Collected
+
+During troubleshooting, the following observations were made:
+
+- LTE Attach procedure completed successfully.
+- Default EPS Bearer was established successfully.
+- PCRF successfully installed PCC rules.
+- SGW initiated the Create Bearer Request.
+- DNS resolution returned an unexpected PGW IP address.
+- The selected PGW rejected or could not process the Create Bearer Request.
+- Comparison with successful traces confirmed inconsistent PGW FQDN resolution.
+
+  
 ## Root Cause Analysis
 
 Detailed signalling analysis showed that the PGW FQDN configured in the network resolved to an unexpected destination.
